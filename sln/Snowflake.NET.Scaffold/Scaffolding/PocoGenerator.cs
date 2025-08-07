@@ -12,6 +12,8 @@ internal static class PocoGenerator
 {
     private static readonly IFormatProvider _provider = CultureInfo.InvariantCulture;
 
+    private static string _rawDbName = string.Empty;
+
     internal static void Generate(
     string repositoryPath,
     string repositoryNamespace,
@@ -23,9 +25,12 @@ internal static class PocoGenerator
         {
             foreach (var tableSchema in dbInfo.ToList())
             {
-                // TODO - don't set this each time
-                var rawDbName = tableSchema.Data.First().DatabaseName;
-                var formattedDbName = Transforms.TransformLabel(rawDbName!);
+                if (string.IsNullOrEmpty(_rawDbName))
+                {
+                    _rawDbName = tableSchema.Data.First().DatabaseName!;
+                }
+
+                var formattedDbName = Transforms.TransformLabel(_rawDbName!);
                 var rawSchemaName = tableSchema.Schema;
                 var formattedSchemaName = Transforms.TransformLabel(rawSchemaName!);
 
@@ -69,13 +74,7 @@ internal static class PocoGenerator
                         sb.Append(PropertyGenerator.Generate(col));
                     }
 
-                    var tmp = new string[] { sb.ToString() };
-                    var indx = tmp[0].LastIndexOf('\n');
-                    tmp[0] = tmp[0].Substring(0, indx);
-                    indx = tmp[0].LastIndexOf('\r');
-                    tmp[0] = tmp[0].Substring(0, indx);
-
-                    sb = new StringBuilder(tmp[0]);
+                    sb = new StringBuilder(TextHelpers.RemoveTrailingCrLf(sb.ToString()));
                     sb.AppendLine("}");
 
                     File.WriteAllText(Path.Combine(schemaPath[0], $"{formattedTableName}.cs"), sb.ToString(), Encoding.UTF8);

@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Globalization;
 using Snowflake.NET.Scaffold.DTE;
 using Snowflake.NET.Models.DAO;
 using Snowflake.NET.Validation;
@@ -14,8 +13,6 @@ namespace Snowflake.NET.Scaffold.Scaffolding;
 /// </summary>
 public class Scaffolder
 {
-    private static readonly IFormatProvider _provider = CultureInfo.InvariantCulture;
-
     private readonly string _connectionString;
     private readonly string _repositoryNamespace;
     private readonly string _repositoryPath;
@@ -25,8 +22,8 @@ public class Scaffolder
     ///     Initializes a new instance of the <see cref="Scaffolder"/> class.
     /// </summary>
     /// <param name="connectionString">The database connection string.</param>
-    /// <param name="rootNamespace">The root namespace of the target project.</param>
-    /// <param name="path">The to create the scaffolded files in.</param>
+    /// <param name="rootNamespace">The namespace to use for the generated files.</param>
+    /// <param name="path">The physical location to place the generated files.</param>
     public Scaffolder(
         string connectionString,
         string rootNamespace,

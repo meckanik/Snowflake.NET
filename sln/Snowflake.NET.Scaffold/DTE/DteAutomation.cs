@@ -23,7 +23,9 @@ public static class DteAutomation
                     try
                     {
                         dte.Solution.Item(indx).DTE.ContextAttributes.Refresh();
-                    } catch (IndexOutOfRangeException) { }
+                    } 
+                    catch (IndexOutOfRangeException) { }
+                    catch (ArgumentOutOfRangeException) { }
                 }
             }
 

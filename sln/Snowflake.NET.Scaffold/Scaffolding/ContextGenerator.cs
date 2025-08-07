@@ -7,6 +7,9 @@ using Snowflake.NET.Models;
 
 namespace Snowflake.NET.Scaffold.Scaffolding;
 
+/// <summary>
+///     Contains scaffolding operation methods.
+/// </summary>
 internal static class ContextGenerator
 {
     private const string getterAndSetter = " { get; set; }\r\n";
@@ -21,8 +24,15 @@ internal static class ContextGenerator
     private static string _dbContextNameSpace = string.Empty;
     private static string _formattedDbName = string.Empty;
     private static string _dbSetName = typeof(SFDbSet<>).Name.TrimEnd(['`', '1']);
+    private static string _sfContextName = typeof(SFContext).Name;
 
-    public static void Generate(
+    /// <summary>
+    ///     Generates the context objects for scaffolding operations.
+    /// </summary>
+    /// <param name="repositoryPath">The physical location to place the generated files.</param>
+    /// <param name="repositoryNamespace">The namespace to use for the generated files.</param>
+    /// <param name="dbInfo">The INFORMATION_SCHEMA table information.</param>
+    internal static void Generate(
         string repositoryPath,
         string repositoryNamespace,
         IEnumerable<TableData> dbInfo)
@@ -86,7 +96,7 @@ internal static class ContextGenerator
                         tableNamespace = $"{_repositoryNamespace}.{_formattedDbName}.{schemaName}";
                     }
                     
-                    var pluralTableName = PluralizeName(tableName!);
+                    var pluralTableName = TextHelpers.PluralizeName(tableName!);
                     sb.AppendLine("\t/// <summary>");
                     sb.AppendLine($"\t///{ttab}Gets or sets the {pluralTableName} value.");
                     sb.AppendLine("\t/// </summary>");
@@ -95,13 +105,7 @@ internal static class ContextGenerator
                     currentSchemaData.TableNameList.Add(new KeyValuePair<string, string>(pluralTableName, $"{tableNamespace}.{tableName}"));
                 }
 
-                var tmp = new string[] { sb.ToString() };
-                var indx = tmp[0].LastIndexOf('\n');
-                tmp[0] = tmp[0].Substring(0, indx);
-                indx = tmp[0].LastIndexOf('\r');
-                tmp[0] = tmp[0].Substring(0, indx);
-
-                sb = new StringBuilder(tmp[0]);
+                sb = new StringBuilder(TextHelpers.RemoveTrailingCrLf(sb.ToString()));
                 sb.AppendLine("}");
 
                 File.WriteAllText(Path.Combine(dbContextPath, $"{schemaContextName}.cs"), sb.ToString(), Encoding.UTF8);
@@ -130,12 +134,12 @@ internal static class ContextGenerator
         sb.AppendLine($"public class {className}");
         sb.AppendLine("{");
         // set the private property
-        sb.AppendLine($"\tprivate readonly {typeof(SFContext).Name} _context;\r\n");
+        sb.AppendLine($"\tprivate readonly {_sfContextName} _context;\r\n");
         // build the constructor
         sb.AppendLine("\t/// <summary>");
         sb.AppendLine($"\t///\t\tInitializes a new instance of the <see cref=\"{className}\"/> class.");
         sb.AppendLine("\t/// <summary>");
-        sb.AppendLine($"\tpublic {className}({typeof(SFContext).Name} context)");
+        sb.AppendLine($"\tpublic {className}({_sfContextName} context)");
         sb.AppendLine("\t{");
         sb.AppendLine($"{ttab}_context = context;");
         sb.AppendLine("\t}\r\n");
@@ -154,13 +158,7 @@ internal static class ContextGenerator
             sb.AppendLine("};");
         }
 
-        var tmp = new string[] { sb.ToString() };
-        var indx = tmp[0].LastIndexOf('\n');
-        tmp[0] = tmp[0].Substring(0, indx);
-        indx = tmp[0].LastIndexOf('\r');
-        tmp[0] = tmp[0].Substring(0, indx);
-
-        sb = new StringBuilder(tmp[0]);
+        sb = new StringBuilder(TextHelpers.RemoveTrailingCrLf(sb.ToString()));
         sb.AppendLine("}");
 
         File.WriteAllText(Path.Combine(_repositoryPath, $"{_formattedDbName}Context.cs"), sb.ToString(), Encoding.UTF8);
@@ -183,18 +181,6 @@ internal static class ContextGenerator
         sb.Append("/// </summary>");
 
         return sb.ToString();
-    }
-
-    private static string PluralizeName(string name)
-    {
-        var result = new string[] { name };
-
-        if (!string.Equals(name[name.Length - 1].ToString(), "S", StringComparison.OrdinalIgnoreCase))
-        {
-            result[0] = $"{result[0]}s";
-        }
-
-        return result[0];
     }
 }
 

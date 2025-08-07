@@ -14,7 +14,7 @@ public sealed class PropertyNameAttribute : Attribute, IPropertyNameAttribute
     /// <summary>
     ///     Initializes a new instance of the <see cref="PropertyNameAttribute"/> class.
     /// </summary>
-    /// <param name="tableName">The name of the table.</param>
+    /// <param name="tableName">The name of the property.</param>
     public PropertyNameAttribute(string propertyName) => _propertyName = propertyName;
 
     /// <inheritdoc />

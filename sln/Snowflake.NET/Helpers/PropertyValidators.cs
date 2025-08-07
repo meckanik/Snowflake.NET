@@ -14,10 +14,7 @@ public static class PropertyValidators
     /// <exception cref="ArgumentNullException">Thrown if the value is null.</exception>
     public static bool ValidateArgument<T>(T value)
     {
-        if (value is null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNullOrEmpty(nameof(value));
 
         return true;
     }

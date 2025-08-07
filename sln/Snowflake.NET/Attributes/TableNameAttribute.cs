@@ -16,8 +16,6 @@ public sealed class TableNameAttribute : Attribute, ITableNameAttribute
     /// <param name="tableName">The name of the table.</param>
     public TableNameAttribute(string tableName) { _tableName = tableName; }
 
-    /// <summary>
-    ///     Gets the TableName value.
-    /// </summary>
+    /// <inheritdoc />
     public string TableName => _tableName;
 }

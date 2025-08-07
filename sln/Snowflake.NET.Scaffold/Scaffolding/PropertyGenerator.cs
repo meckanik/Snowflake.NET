@@ -9,7 +9,7 @@ namespace Snowflake.NET.Scaffold.Scaffolding;
 /// <summary>
 ///     Contains methods for generating POCO properties.
 /// </summary>
-public static class PropertyGenerator
+internal static class PropertyGenerator
 {
     private const string getterAndSetter = " { get; set; }\r\n";
     private const string nullable = "?";
@@ -22,7 +22,7 @@ public static class PropertyGenerator
     /// </summary>
     /// <param name="column">The <see cref="InformationColumn"/> object, containing the property values.</param>
     /// <returns>The constructed property as a string.</returns>
-    public static string Generate(InformationColumn? column)
+    internal static string Generate(InformationColumn? column)
     {
         var sb = new StringBuilder();
         if (column is not null && !string.IsNullOrEmpty(column.DATA_TYPE) && !string.IsNullOrEmpty(column.COLUMN_NAME))
@@ -51,9 +51,12 @@ public static class PropertyGenerator
 
     private static string GenerateComment(string propertyName)
     {
-        return "\t/// <summary>\r\n" +
-            $"\t///\tGets or sets the {propertyName} value.\r\n" +
-            "\t/// </summary>";
+        var sb = new StringBuilder();
+        sb.AppendLine("\t/// <summary>");
+        sb.AppendLine($"\t///\tGets or sets the {propertyName} value.");
+        sb.Append("\t/// </summary>");
+
+        return sb.ToString();
     }
 
     private static string GeneratePropertyAttribute(string rawPropertyName)

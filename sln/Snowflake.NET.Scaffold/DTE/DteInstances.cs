@@ -19,14 +19,13 @@ public static class DteInstances
         if (retVal == 0)
         {
             rot.EnumRunning(out IEnumMoniker enumMoniker);
+            var moniker = new IMoniker[1];
 
-            //uint fetched = uint.MinValue;
-            IMoniker[] moniker = new IMoniker[1];
             while (enumMoniker.Next(1, moniker, out var fetched) == 0)
             {
                 CreateBindCtx(0, out IBindCtx bindCtx);
-                string displayName;
-                moniker[0].GetDisplayName(bindCtx, null, out displayName);
+                moniker[0].GetDisplayName(bindCtx, null, out var displayName);
+
                 bool isVisualStudio = displayName.StartsWith("!VisualStudio", StringComparison.OrdinalIgnoreCase);
                 if (isVisualStudio)
                 {
