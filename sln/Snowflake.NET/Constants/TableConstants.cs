@@ -1,7 +1,7 @@
 ﻿namespace Snowflake.NET.Constants;
 
 /// <summary>
-///     Project constant values.
+///     Project constant values for working with tables.
 /// </summary>
 public static class TableConstants
 {

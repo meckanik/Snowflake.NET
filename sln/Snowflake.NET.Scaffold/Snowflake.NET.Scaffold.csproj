@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Snowflake.NET.Framework\Snowflake.NET.Framework.csproj" />
     <ProjectReference Include="..\Snowflake.NET\Snowflake.NET.csproj" />
   </ItemGroup>
 

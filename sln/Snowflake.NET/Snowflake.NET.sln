@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36301.6 d17.14
+VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET", "Snowflake.NET.csproj", "{B74B0DCC-B4CB-4E9C-84B9-804397E8B9FF}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Scaffold", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Framework", "..\Snowflake.NET.Framework\Snowflake.NET.Framework.csproj", "{95282F41-F1BC-4A83-859A-44C010E934E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Tests.Functional", "..\Snowflake.NET.Tests.Functional\Snowflake.NET.Tests.Functional.csproj", "{19DD0EF5-D70F-46C9-AFFF-A438D849F44F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Tests", "..\Snowflake.NET.Tests.Functional\Snowflake.NET.Tests.csproj", "{19DD0EF5-D70F-46C9-AFFF-A438D849F44F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

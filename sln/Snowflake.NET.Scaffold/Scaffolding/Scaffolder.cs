@@ -1,14 +1,11 @@
 ﻿using System.Data;
 using System.Globalization;
-using System.Text;
-using Snowflake.NET.Attributes;
-using Snowflake.NET.Constants;
 using Snowflake.NET.Scaffold.DTE;
-using Snowflake.NET.Helpers;
 using Snowflake.NET.Models.DAO;
 using Snowflake.NET.Validation;
 using Snowflake.Data.Client;
 using Snowflake.Data.Core;
+using Snowflake.NET.Models;
 
 namespace Snowflake.NET.Scaffold.Scaffolding;
 
@@ -20,7 +17,7 @@ public class Scaffolder
     private static readonly IFormatProvider _provider = CultureInfo.InvariantCulture;
 
     private readonly string _connectionString;
-    private readonly string _repositoryNameSpace;
+    private readonly string _repositoryNamespace;
     private readonly string _repositoryPath;
     private readonly Dictionary<string, object> _namespaces;
 
@@ -40,7 +37,7 @@ public class Scaffolder
         PropertyValidators.ValidateArgument(path);
 
         _connectionString = connectionString;
-        _repositoryNameSpace = $"{rootNamespace}.SnowflakeRepository";
+        _repositoryNamespace = $"{rootNamespace}.SnowflakeRepository";
         _repositoryPath = Path.Combine(path, "SnowflakeRepository");
 
         if (!Directory.Exists(_repositoryPath))
@@ -69,7 +66,7 @@ public class Scaffolder
             cmd.CommandText = $"alter session set DOTNET_QUERY_RESULT_FORMAT = {ResultFormat.JSON}";
             cmd.ExecuteNonQuery();
 
-            cmd.CommandText = "select * from TABLES";
+            cmd.CommandText = "select * from TABLES where TABLE_SCHEMA!='INFORMATION_SCHEMA'";
             cmd.CommandType = CommandType.Text;
 
             var tableList = SnowflakeReader.Read<InformationTable>(cmd);
@@ -91,105 +88,26 @@ public class Scaffolder
                 });
             }
 
+            // group the table list
+            var grouped = tableContainerList.GroupBy(
+                db => db.Schema,
+                db => db,
+                (key, data) => new TableData { Schema = key, Data = data });
+
             // generate the class files
-            GenerateClasses(tableContainerList);
+            ClassGenerator.Generate(
+                _repositoryPath, 
+                _repositoryNamespace,
+                grouped);
+
+
             // refresh VS projects to see new files
             var vsInstances = DteInstances.GetInstances();
             DteAutomation.RefreshProjects(vsInstances);
         }
-
+        // close the connection
         conn.Close();
 
         return true;
-    }
-
-    private void GenerateClasses(IEnumerable<TableContainer> dbInfo)
-    {
-        PropertyValidators.ValidateArgument(dbInfo);
-
-        if (dbInfo is not null)
-        {
-            foreach (var tableSchema in dbInfo.GroupBy(
-                db => db.Schema,
-                db => db,
-                (key, data) => new { Schema = key, Data = data }).ToList())
-            {
-                // TODO - don't set this each time
-                var rawDbName = tableSchema.Data.First().DatabaseName;
-                var formattedDbName = Transforms.TransformLabel(rawDbName!);
-                var rawSchemaName = tableSchema.Schema;
-                var formattedSchemaName = Transforms.TransformLabel(rawSchemaName!);
-
-                // we will update this for views, so make it a single-element array as strings are immutable
-                var schemaPath = new string[] { Path.Combine(_repositoryPath, formattedDbName, formattedSchemaName) };
-                if (!Directory.Exists(schemaPath[0]))
-                {
-                    Directory.CreateDirectory(schemaPath[0]);
-                }
-
-                var currentNamespace = string.Join('.', _repositoryNameSpace, formattedDbName, formattedSchemaName);
-
-                // write out the table POCOs
-                foreach (var table in tableSchema.Data.ToList())
-                {
-                    var viewPath = Path.Combine(schemaPath[0], "Views");
-                    if (table.TableType == TableConstants.TableTypeView)
-                    {
-                        if (!Directory.Exists(viewPath))
-                        {
-                            Directory.CreateDirectory(viewPath);
-                        }
-
-                        schemaPath[0] = viewPath;
-                    }
-
-                    var sb = new StringBuilder();
-                    var rawTableName = table.TableName;
-                    var formattedTableName = Transforms.TransformLabel(rawTableName!);
-
-                    sb.AppendLine(GenerateUsingStatements());
-                    sb.AppendLine(_provider, $"namespace {currentNamespace};\r\n");
-
-                    sb.AppendLine(GenerateClassComment(rawTableName!));
-                    sb.AppendLine(GenerateClassAttribute(rawTableName!));
-                    sb.AppendLine(_provider, $"public class {formattedTableName}");
-                    sb.AppendLine("{");
-
-                    foreach (var col in table.Columns.ToList())
-                    {
-                        sb.Append(PropertyGenerator.Generate(col));
-                    }
-
-                    var tmp = new string[] { sb.ToString() };
-                    var indx = tmp[0].LastIndexOf('\n');
-                    tmp[0] = tmp[0].Substring(0, indx);
-                    indx = tmp[0].LastIndexOf('\r');
-                    tmp[0] = tmp[0].Substring(0, indx);
-
-                    sb = new StringBuilder(tmp[0]);
-                    sb.AppendLine("}");
-
-                    File.WriteAllText(Path.Combine(schemaPath[0], $"{formattedTableName}.cs"), sb.ToString(), Encoding.UTF8);
-                }
-            }
-        }
-    }
-
-    private static string GenerateClassComment(string rawTableName)
-    {
-        return "/// <summary>\r\n" +
-            $"///\tProperty class for the {rawTableName} table.\r\n" +
-            "/// </summary>";
-    }
-
-    private static string GenerateClassAttribute(string rawTableName)
-    {
-        var attribute = typeof(TableNameAttribute).Name.Replace("Attribute", "", StringComparison.OrdinalIgnoreCase);
-        return $"[{attribute}(\"{rawTableName}\")]";
-    }
-
-    private static string GenerateUsingStatements()
-    {
-        return "using MultiORM.Snowflake.Attributes;\r\n";
     }
 }

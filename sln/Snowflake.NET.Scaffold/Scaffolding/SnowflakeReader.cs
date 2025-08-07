@@ -1,20 +1,19 @@
 ﻿using System.Data;
-using System.Globalization;
 using System.Text;
 using Newtonsoft.Json;
+using Snowflake.NET.Connector;
+using Snowflake.NET.Constants;
 using Snowflake.NET.Validation;
 
 namespace Snowflake.NET.Scaffold.Scaffolding;
 
 /// <summary>
-///     Reads Snowflake INFORMATION_SCHEMA data for scaffolding.
+///     Contains methods for reading Snowflake API return data.
 /// </summary>
 public static class SnowflakeReader
 {
-    private static readonly IFormatProvider _provider = CultureInfo.InvariantCulture;
-
     /// <summary>
-    ///     Reads Snowflake INFORMATION_SCHEMA data.
+    ///     Reads Snowflake API return data.
     /// </summary>
     /// <typeparam name="T">The object type parameter.</typeparam>
     /// <param name="cmd">The command text to execute.</param>
@@ -28,25 +27,27 @@ public static class SnowflakeReader
         {
             if (reader is not null)
             {
+                var fieldCount = reader.FieldCount;
+                var propList = new List<string>();
+
+                for (var indx = 0; indx < fieldCount; indx++)
+                {
+                    propList.Add(reader.GetName(indx));
+                }
+
+                var builder = new JsonBuilder(propList);
                 while (reader.Read())
                 {
                     var sb = new StringBuilder();
-                    sb.Append("{ ");
-                    var colCount = reader.FieldCount;
-                    for (var indx = 0; indx < colCount; indx++)
+                    for (var indx = 0; indx < fieldCount; indx++)
                     {
-                        var comma = indx + 1 == colCount ? string.Empty : ", ";
-                        sb.Append(_provider, $"\"{reader.GetName(indx)}\":\"{reader[indx].ToString()}\"{comma}");
+                        sb.Append($"{reader.GetString(indx)}{JsonConstants.Seperator}");
                     }
 
-                    sb.Append(" }");
-
-                    var info = JsonConvert.DeserializeObject<T>(sb.ToString());
-                    if (info is not null)
-                    {
-                        result.Add(info);
-                    }
+                    builder.AddSerializedObject(sb.ToString());
                 }
+
+                result.AddRange(JsonConvert.DeserializeObject<IEnumerable<T>>(builder.ToString())!);
             }
         }
 

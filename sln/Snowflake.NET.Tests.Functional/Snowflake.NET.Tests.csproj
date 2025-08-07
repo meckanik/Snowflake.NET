@@ -18,11 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Snowflake.NET.Framework\Snowflake.NET.Framework.csproj" />
     <ProjectReference Include="..\Snowflake.NET.Scaffold\Snowflake.NET.Scaffold.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SnowflakeRepository\" />
   </ItemGroup>
 
 </Project>
