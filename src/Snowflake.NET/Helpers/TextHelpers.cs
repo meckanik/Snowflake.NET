@@ -16,7 +16,7 @@ public static class TextHelpers
         var chk = name[name.Length - 1].ToString();
         if (string.Equals(chk, "Y", StringComparison.OrdinalIgnoreCase))
         {
-            result[0] = $"{result[0].Take(chk.Length - 1).ToString()}ies";
+            result[0] = $"{new string(result[0].Take(name.Length - 1).ToArray())}ies";
         }
         else if (!string.Equals(chk, "S", StringComparison.OrdinalIgnoreCase))
         {

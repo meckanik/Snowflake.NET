@@ -105,16 +105,16 @@ public class Store
 	public DateTime? SRecEndDate  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the S_REC_START_DATE value.
-	/// </summary>
-	[PropertyName("S_REC_START_DATE")]
-	public DateTime? SRecStartDate  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the S_STREET_NAME value.
 	/// </summary>
 	[PropertyName("S_STREET_NAME")]
 	public String? SStreetName  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the S_REC_START_DATE value.
+	/// </summary>
+	[PropertyName("S_REC_START_DATE")]
+	public DateTime? SRecStartDate  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the S_MANAGER value.

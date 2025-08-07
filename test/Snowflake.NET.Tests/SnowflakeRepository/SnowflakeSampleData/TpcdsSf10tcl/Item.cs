@@ -21,16 +21,16 @@ public class Item
 	public String? IBrand  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the I_CLASS_ID value.
-	/// </summary>
-	[PropertyName("I_CLASS_ID")]
-	public Int32? IClassId  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the I_FORMULATION value.
 	/// </summary>
 	[PropertyName("I_FORMULATION")]
 	public String? IFormulation  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the I_CLASS_ID value.
+	/// </summary>
+	[PropertyName("I_CLASS_ID")]
+	public Int32? IClassId  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the I_MANUFACT value.
@@ -81,16 +81,16 @@ public class Item
 	public DateTime? IRecStartDate  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the I_ITEM_DESC value.
-	/// </summary>
-	[PropertyName("I_ITEM_DESC")]
-	public String? IItemDesc  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the I_UNITS value.
 	/// </summary>
 	[PropertyName("I_UNITS")]
 	public String? IUnits  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the I_ITEM_DESC value.
+	/// </summary>
+	[PropertyName("I_ITEM_DESC")]
+	public String? IItemDesc  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the I_REC_END_DATE value.

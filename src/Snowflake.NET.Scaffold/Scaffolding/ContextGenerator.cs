@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Text;
 using Snowflake.NET.Framework.Context;
 using Snowflake.NET.Framework.Entity;
 using Snowflake.NET.Helpers;
@@ -18,7 +17,7 @@ internal static class ContextGenerator
     private const string ttab = "\t\t";
 
     private static readonly IFormatProvider _provider = CultureInfo.InvariantCulture;
-
+    
     private static string _repositoryPath = string.Empty;
     private static string _repositoryNamespace = string.Empty;
     private static string _dbContextNameSpace = string.Empty;
@@ -39,17 +38,13 @@ internal static class ContextGenerator
     {
         _repositoryPath = repositoryPath;
         _repositoryNamespace = repositoryNamespace;
-
-        var schemaData = GenerateSchemaContext(dbInfo);
-
-        GenerateSfDbContext(schemaData);
-    }
-
-    private static IEnumerable<SchemaData> GenerateSchemaContext(IEnumerable<TableData> dbInfo)
-    {
-        var result = new List<SchemaData>();
+        
+        var schemaData = new List<SchemaData>();
         if (dbInfo is not null)
         {
+            Writer? writer = null;
+            string[]? usings = null;
+
             foreach (var tableSchema in dbInfo)
             {
                 if (string.IsNullOrEmpty(_formattedDbName))
@@ -66,25 +61,25 @@ internal static class ContextGenerator
                     SchemaContextName = schemaContextName,
                 };
 
-                if (!Directory.Exists(dbContextPath))
-                {
-                    Directory.CreateDirectory(dbContextPath);
-                }
+                writer = new Writer(dbContextPath, schemaContextName);
 
-                var sb = new StringBuilder();
                 // set usings
-                sb.AppendLine(GenerateSchemaUsingStatements(formattedSchemaName!));
+                usings = new[]
+                {
+                    $"using {typeof(SFDbSet<>).Namespace};",
+                    $"using {_repositoryNamespace}.{_formattedDbName}.{formattedSchemaName};\r\n"
+                };
+                writer.WriteUsings(usings);
                 // namespace declaration
                 if (string.IsNullOrEmpty(_dbContextNameSpace))
                 {
                     _dbContextNameSpace = string.Join('.', _repositoryNamespace, _formattedDbName, "DbContext");
                 }
-                
-                sb.AppendLine(_provider, $"namespace {_dbContextNameSpace};\r\n");
+                writer.Write($"namespace {_dbContextNameSpace};\r\n");
                 // class declaration
-                sb.AppendLine(GenerateSchemaClassComment(formattedSchemaName!));
-                sb.AppendLine(_provider, $"public class {schemaContextName}");
-                sb.AppendLine("{");
+                writer.WriteSummary($"SF Schema Context class for the {formattedSchemaName} schema.", false);
+                writer.Write($"public class {schemaContextName}");
+                writer.WriteOpenBracket(false);
                 // write out the dbset properties
                 var tableNamespace = string.Empty;
                 foreach (var table in tableSchema.Data)
@@ -95,92 +90,55 @@ internal static class ContextGenerator
                     {
                         tableNamespace = $"{_repositoryNamespace}.{_formattedDbName}.{schemaName}";
                     }
-                    
+
                     var pluralTableName = TextHelpers.PluralizeName(tableName!);
-                    sb.AppendLine("\t/// <summary>");
-                    sb.AppendLine($"\t///{ttab}Gets or sets the {pluralTableName} value.");
-                    sb.AppendLine("\t/// </summary>");
-                    sb.AppendLine($"\tpublic{SPC}{_dbSetName}<{tableName}>{nullable}{SPC}{pluralTableName}{SPC}{getterAndSetter}");
+
+                    writer.WriteSummary($"Gets or sets the {pluralTableName} value.");
+                    writer.Write($"\tpublic{SPC}{_dbSetName}<{tableName}>{nullable}{SPC}{pluralTableName}{SPC}{getterAndSetter}");
 
                     currentSchemaData.TableNameList.Add(new KeyValuePair<string, string>(pluralTableName, $"{tableNamespace}.{tableName}"));
                 }
 
-                sb = new StringBuilder(TextHelpers.RemoveTrailingCrLf(sb.ToString()));
-                sb.AppendLine("}");
+                writer.WriteToFile();
 
-                File.WriteAllText(Path.Combine(dbContextPath, $"{schemaContextName}.cs"), sb.ToString(), Encoding.UTF8);
-
-                result.Add(currentSchemaData);
+                schemaData.Add(currentSchemaData);
             }
-        }
 
-        return result;
-    }
+            var contextName = $"{_formattedDbName}Context";
+            writer = new Writer(_repositoryPath, contextName);
 
-    private static void GenerateSfDbContext(IEnumerable<SchemaData> schemaData)
-    {
-        var sb = new StringBuilder();
-        sb.AppendLine("using Snowflake.NET.Framework.Context;");
-        sb.AppendLine("using Snowflake.NET.Framework.Entity;");
-        sb.AppendLine($"using {_dbContextNameSpace};");
-        // set the namespace
-        sb.AppendLine(_provider, $"namespace {_repositoryNamespace};\r\n");
-        // set the class comment
-        sb.AppendLine("/// <summary>");
-        sb.AppendLine("///\t\tContains the db schema context properties.");
-        sb.AppendLine("/// </summary>");
-        // set the class declaration
-        var className = $"{_formattedDbName}Context";
-        sb.AppendLine($"public class {className}");
-        sb.AppendLine("{");
-        // set the private property
-        sb.AppendLine($"\tprivate readonly {_sfContextName} _context;\r\n");
-        // build the constructor
-        sb.AppendLine("\t/// <summary>");
-        sb.AppendLine($"\t///\t\tInitializes a new instance of the <see cref=\"{className}\"/> class.");
-        sb.AppendLine("\t/// <summary>");
-        sb.AppendLine($"\tpublic {className}({_sfContextName} context)");
-        sb.AppendLine("\t{");
-        sb.AppendLine($"{ttab}_context = context;");
-        sb.AppendLine("\t}\r\n");
-        // write the properties
-        foreach (var schema in schemaData)
-        {
-            sb.AppendLine("\t/// <summary>");
-            sb.AppendLine($"\t///{ttab}Contains {_dbSetName} properties for tables within the {schema.SchemaName} schema.");
-            sb.AppendLine("\t/// </summary>");
-            sb.AppendLine($"\tpublic {schema.SchemaContextName} {schema.SchemaName} => new {schema.SchemaContextName}");
-            sb.AppendLine("\t{");
-            foreach (var table in schema.TableNameList)
+            // write usings
+            usings = new[]
             {
-                sb.AppendLine($"\t{ttab}{table.Key} = new {_dbSetName}<{table.Value}>(_context),");
+                "using Snowflake.NET.Framework.Context;",
+                "using Snowflake.NET.Framework.Entity;",
+                $"using {_dbContextNameSpace};"
+            };
+            writer.WriteUsings(usings);
+            // set the namespace
+            writer.Write($"namespace {_repositoryNamespace};\r\n");
+            // set the class comment
+            writer.WriteSummary("Contains the db schema context properties.", false);
+            // set the class declaration
+            writer.Write($"public class {contextName}");
+            writer.WriteOpenBracket(false);
+            // set the private property
+            writer.Write($"\tprivate readonly {_sfContextName} _context;\r\n");
+            // build the constructor
+            writer.WriteSummary($"Initializes a new instance of the <see cref=\"{contextName}\"/> class.");
+            writer.Write($"\tpublic {contextName}({_sfContextName} context)");
+            writer.Wrap("_context = context;", true, true);
+            // write the properties
+            foreach (var schema in schemaData)
+            {
+                writer.WriteSummary($"Contains {_dbSetName} properties for tables within the {schema.SchemaName} schema.");
+                writer.Write($"\tpublic {schema.SchemaContextName} {schema.SchemaName} => new {schema.SchemaContextName}");
+                writer.Wrap(schema.TableNameList.Select(tbl => 
+                    new string($"\t{ttab}{tbl.Key} = new {_dbSetName}<{tbl.Value}>(_context),")), true, true);
             }
-            sb.AppendLine("};");
+
+            writer.WriteToFile();
         }
-
-        sb = new StringBuilder(TextHelpers.RemoveTrailingCrLf(sb.ToString()));
-        sb.AppendLine("}");
-
-        File.WriteAllText(Path.Combine(_repositoryPath, $"{_formattedDbName}Context.cs"), sb.ToString(), Encoding.UTF8);
-    }
-
-    private static string GenerateSchemaUsingStatements(string schemaName)
-    {
-        var sb = new StringBuilder();
-        sb.AppendLine($"using {typeof(SFDbSet<>).Namespace};");
-        sb.AppendLine($"using {_repositoryNamespace}.{_formattedDbName}.{schemaName};");
-
-        return sb.ToString();
-    }
-
-    private static string GenerateSchemaClassComment(string schemaName)
-    {
-        var sb = new StringBuilder();
-        sb.AppendLine("/// <summary>");
-        sb.AppendLine($"///\t\tSF Schema Context class for the {schemaName} schema.");
-        sb.Append("/// </summary>");
-
-        return sb.ToString();
     }
 }
 

@@ -39,16 +39,16 @@ public class CatalogSales
 	public Int32? CsExtSalesPrice  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CS_SHIP_DATE_SK value.
-	/// </summary>
-	[PropertyName("CS_SHIP_DATE_SK")]
-	public Int32? CsShipDateSk  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CS_PROMO_SK value.
 	/// </summary>
 	[PropertyName("CS_PROMO_SK")]
 	public Int32? CsPromoSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CS_SHIP_DATE_SK value.
+	/// </summary>
+	[PropertyName("CS_SHIP_DATE_SK")]
+	public Int32? CsShipDateSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_EXT_LIST_PRICE value.
@@ -153,16 +153,16 @@ public class CatalogSales
 	public Int32? CsShipCdemoSk  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CS_ORDER_NUMBER value.
-	/// </summary>
-	[PropertyName("CS_ORDER_NUMBER")]
-	public Int32? CsOrderNumber  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CS_BILL_ADDR_SK value.
 	/// </summary>
 	[PropertyName("CS_BILL_ADDR_SK")]
 	public Int32? CsBillAddrSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CS_ORDER_NUMBER value.
+	/// </summary>
+	[PropertyName("CS_ORDER_NUMBER")]
+	public Int32? CsOrderNumber  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_NET_PROFIT value.

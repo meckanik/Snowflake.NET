@@ -21,9 +21,10 @@ namespace Snowflake.NET.Tests.Functional
             var status = new Scaffolder(
                 _connectionSettings, 
                 "Snowflake.NET.Tests",
-                @"C:\development\Snowflake.NET\sln\Snowflake.NET.Tests.Functional");
+                @"C:\development\Snowflake.NET\test\Snowflake.NET.Tests");
 
-            Assert.Throws<IndexOutOfRangeException>(() => status.ScaffoldDatabase());
+            Assert.Throws<ArgumentException>(() => status.ScaffoldDatabase());
+            //Assert.Throws<IndexOutOfRangeException>(() => status.ScaffoldDatabase());
             Assert.Equals(status, true);
         }
     }

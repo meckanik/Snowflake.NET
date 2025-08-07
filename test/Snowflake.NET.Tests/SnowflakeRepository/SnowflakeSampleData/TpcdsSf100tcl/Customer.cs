@@ -21,16 +21,16 @@ public class Customer
 	public String? CPreferredCustFlag  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the C_LAST_REVIEW_DATE value.
-	/// </summary>
-	[PropertyName("C_LAST_REVIEW_DATE")]
-	public String? CLastReviewDate  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the C_CURRENT_HDEMO_SK value.
 	/// </summary>
 	[PropertyName("C_CURRENT_HDEMO_SK")]
 	public Int32? CCurrentHdemoSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the C_LAST_REVIEW_DATE value.
+	/// </summary>
+	[PropertyName("C_LAST_REVIEW_DATE")]
+	public String? CLastReviewDate  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the C_BIRTH_YEAR value.

@@ -9,16 +9,16 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 public class DateDim
 {
 	/// <summary>
-	///	Gets or sets the D_FY_QUARTER_SEQ value.
-	/// </summary>
-	[PropertyName("D_FY_QUARTER_SEQ")]
-	public Int32? DFyQuarterSeq  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the D_SAME_DAY_LQ value.
 	/// </summary>
 	[PropertyName("D_SAME_DAY_LQ")]
 	public Int32? DSameDayLq  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the D_FY_QUARTER_SEQ value.
+	/// </summary>
+	[PropertyName("D_FY_QUARTER_SEQ")]
+	public Int32? DFyQuarterSeq  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the D_DATE_ID value.
@@ -93,16 +93,16 @@ public class DateDim
 	public DateTime? DDate  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the D_DAY_NAME value.
-	/// </summary>
-	[PropertyName("D_DAY_NAME")]
-	public String? DDayName  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the D_WEEKEND value.
 	/// </summary>
 	[PropertyName("D_WEEKEND")]
 	public String? DWeekend  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the D_DAY_NAME value.
+	/// </summary>
+	[PropertyName("D_DAY_NAME")]
+	public String? DDayName  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the D_CURRENT_MONTH value.

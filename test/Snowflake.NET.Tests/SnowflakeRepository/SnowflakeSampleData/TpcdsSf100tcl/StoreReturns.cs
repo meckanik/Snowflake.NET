@@ -69,10 +69,10 @@ public class StoreReturns
 	public Int32? SrCustomerSk  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the SR_RETURN_AMT_INC_TAX value.
+	///	Gets or sets the SR_CDEMO_SK value.
 	/// </summary>
-	[PropertyName("SR_RETURN_AMT_INC_TAX")]
-	public Int32? SrReturnAmtIncTax  { get; set; }
+	[PropertyName("SR_CDEMO_SK")]
+	public Int32? SrCdemoSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_ITEM_SK value.
@@ -81,10 +81,10 @@ public class StoreReturns
 	public Int32? SrItemSk  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the SR_CDEMO_SK value.
+	///	Gets or sets the SR_RETURN_AMT_INC_TAX value.
 	/// </summary>
-	[PropertyName("SR_CDEMO_SK")]
-	public Int32? SrCdemoSk  { get; set; }
+	[PropertyName("SR_RETURN_AMT_INC_TAX")]
+	public Int32? SrReturnAmtIncTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_NET_LOSS value.
@@ -117,14 +117,14 @@ public class StoreReturns
 	public Int32? SrReversedCharge  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the SR_TICKET_NUMBER value.
-	/// </summary>
-	[PropertyName("SR_TICKET_NUMBER")]
-	public Int32? SrTicketNumber  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the SR_RETURN_TIME_SK value.
 	/// </summary>
 	[PropertyName("SR_RETURN_TIME_SK")]
 	public Int32? SrReturnTimeSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the SR_TICKET_NUMBER value.
+	/// </summary>
+	[PropertyName("SR_TICKET_NUMBER")]
+	public Int32? SrTicketNumber  { get; set; }
 }

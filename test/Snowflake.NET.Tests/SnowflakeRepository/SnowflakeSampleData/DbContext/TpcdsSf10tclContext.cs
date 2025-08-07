@@ -114,9 +114,9 @@ public class TpcdsSf10tclContext
 	public SFDbSet<Warehouse>? Warehouses  { get; set; }
 
 	/// <summary>
-	///		Gets or sets the Inventorys value.
+	///		Gets or sets the Inventories value.
 	/// </summary>
-	public SFDbSet<Inventory>? Inventorys  { get; set; }
+	public SFDbSet<Inventory>? Inventories  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the WebSales value.

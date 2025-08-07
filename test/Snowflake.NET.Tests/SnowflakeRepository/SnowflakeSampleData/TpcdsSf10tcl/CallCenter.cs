@@ -147,16 +147,16 @@ public class CallCenter
 	public Int32? CcSqFt  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CC_MANAGER value.
-	/// </summary>
-	[PropertyName("CC_MANAGER")]
-	public String? CcManager  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CC_MKT_ID value.
 	/// </summary>
 	[PropertyName("CC_MKT_ID")]
 	public Int32? CcMktId  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CC_MANAGER value.
+	/// </summary>
+	[PropertyName("CC_MANAGER")]
+	public String? CcManager  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_CLOSED_DATE_SK value.
@@ -171,16 +171,16 @@ public class CallCenter
 	public DateTime? CcRecStartDate  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CC_TAX_PERCENTAGE value.
-	/// </summary>
-	[PropertyName("CC_TAX_PERCENTAGE")]
-	public Int32? CcTaxPercentage  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CC_EMPLOYEES value.
 	/// </summary>
 	[PropertyName("CC_EMPLOYEES")]
 	public Int32? CcEmployees  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CC_TAX_PERCENTAGE value.
+	/// </summary>
+	[PropertyName("CC_TAX_PERCENTAGE")]
+	public Int32? CcTaxPercentage  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_MKT_DESC value.

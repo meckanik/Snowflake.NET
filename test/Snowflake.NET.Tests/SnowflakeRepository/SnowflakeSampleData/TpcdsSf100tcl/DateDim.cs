@@ -165,14 +165,14 @@ public class DateDim
 	public Int32? DWeekSeq  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the D_FY_QUARTER_SEQ value.
-	/// </summary>
-	[PropertyName("D_FY_QUARTER_SEQ")]
-	public Int32? DFyQuarterSeq  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the D_WEEKEND value.
 	/// </summary>
 	[PropertyName("D_WEEKEND")]
 	public String? DWeekend  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the D_FY_QUARTER_SEQ value.
+	/// </summary>
+	[PropertyName("D_FY_QUARTER_SEQ")]
+	public Int32? DFyQuarterSeq  { get; set; }
 }

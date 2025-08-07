@@ -21,16 +21,16 @@ public class CatalogSales
 	public Int32? CsNetPaidIncTax  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CS_SHIP_CUSTOMER_SK value.
-	/// </summary>
-	[PropertyName("CS_SHIP_CUSTOMER_SK")]
-	public Int32? CsShipCustomerSk  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CS_BILL_CDEMO_SK value.
 	/// </summary>
 	[PropertyName("CS_BILL_CDEMO_SK")]
 	public Int32? CsBillCdemoSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CS_SHIP_CUSTOMER_SK value.
+	/// </summary>
+	[PropertyName("CS_SHIP_CUSTOMER_SK")]
+	public Int32? CsShipCustomerSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_CALL_CENTER_SK value.
@@ -45,16 +45,16 @@ public class CatalogSales
 	public Int32? CsExtTax  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CS_EXT_LIST_PRICE value.
-	/// </summary>
-	[PropertyName("CS_EXT_LIST_PRICE")]
-	public Int32? CsExtListPrice  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CS_BILL_HDEMO_SK value.
 	/// </summary>
 	[PropertyName("CS_BILL_HDEMO_SK")]
 	public Int32? CsBillHdemoSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CS_EXT_LIST_PRICE value.
+	/// </summary>
+	[PropertyName("CS_EXT_LIST_PRICE")]
+	public Int32? CsExtListPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_SHIP_ADDR_SK value.
@@ -147,16 +147,16 @@ public class CatalogSales
 	public Int32? CsOrderNumber  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CS_EXT_WHOLESALE_COST value.
-	/// </summary>
-	[PropertyName("CS_EXT_WHOLESALE_COST")]
-	public Int32? CsExtWholesaleCost  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CS_NET_PROFIT value.
 	/// </summary>
 	[PropertyName("CS_NET_PROFIT")]
 	public Int32? CsNetProfit  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CS_EXT_WHOLESALE_COST value.
+	/// </summary>
+	[PropertyName("CS_EXT_WHOLESALE_COST")]
+	public Int32? CsExtWholesaleCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_CATALOG_PAGE_SK value.

@@ -9,16 +9,16 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf10;
 public class Lineitem
 {
 	/// <summary>
-	///	Gets or sets the L_TAX value.
-	/// </summary>
-	[PropertyName("L_TAX")]
-	public Int32? LTax  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the L_ORDERKEY value.
 	/// </summary>
 	[PropertyName("L_ORDERKEY")]
 	public Int32? LOrderkey  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the L_TAX value.
+	/// </summary>
+	[PropertyName("L_TAX")]
+	public Int32? LTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the L_SHIPINSTRUCT value.

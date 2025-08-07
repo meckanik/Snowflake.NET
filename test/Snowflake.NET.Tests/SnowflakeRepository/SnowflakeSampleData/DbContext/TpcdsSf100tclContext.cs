@@ -114,9 +114,9 @@ public class TpcdsSf100tclContext
 	public SFDbSet<IncomeBand>? IncomeBands  { get; set; }
 
 	/// <summary>
-	///		Gets or sets the Inventorys value.
+	///		Gets or sets the Inventories value.
 	/// </summary>
-	public SFDbSet<Inventory>? Inventorys  { get; set; }
+	public SFDbSet<Inventory>? Inventories  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the StoreSales value.

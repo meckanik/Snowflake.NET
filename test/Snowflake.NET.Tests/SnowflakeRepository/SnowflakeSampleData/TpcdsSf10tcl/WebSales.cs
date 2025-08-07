@@ -21,16 +21,16 @@ public class WebSales
 	public Int32? WsExtWholesaleCost  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WS_SHIP_HDEMO_SK value.
-	/// </summary>
-	[PropertyName("WS_SHIP_HDEMO_SK")]
-	public Int32? WsShipHdemoSk  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WS_WAREHOUSE_SK value.
 	/// </summary>
 	[PropertyName("WS_WAREHOUSE_SK")]
 	public Int32? WsWarehouseSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the WS_SHIP_HDEMO_SK value.
+	/// </summary>
+	[PropertyName("WS_SHIP_HDEMO_SK")]
+	public Int32? WsShipHdemoSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_BILL_HDEMO_SK value.
@@ -51,12 +51,6 @@ public class WebSales
 	public Int32? WsListPrice  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WS_SHIP_CUSTOMER_SK value.
-	/// </summary>
-	[PropertyName("WS_SHIP_CUSTOMER_SK")]
-	public Int32? WsShipCustomerSk  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WS_BILL_CUSTOMER_SK value.
 	/// </summary>
 	[PropertyName("WS_BILL_CUSTOMER_SK")]
@@ -67,6 +61,12 @@ public class WebSales
 	/// </summary>
 	[PropertyName("WS_ITEM_SK")]
 	public Int32? WsItemSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the WS_SHIP_CUSTOMER_SK value.
+	/// </summary>
+	[PropertyName("WS_SHIP_CUSTOMER_SK")]
+	public Int32? WsShipCustomerSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_SALES_PRICE value.
@@ -93,28 +93,28 @@ public class WebSales
 	public Int32? WsExtListPrice  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WS_COUPON_AMT value.
-	/// </summary>
-	[PropertyName("WS_COUPON_AMT")]
-	public Int32? WsCouponAmt  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WS_WHOLESALE_COST value.
 	/// </summary>
 	[PropertyName("WS_WHOLESALE_COST")]
 	public Int32? WsWholesaleCost  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WS_PROMO_SK value.
+	///	Gets or sets the WS_COUPON_AMT value.
 	/// </summary>
-	[PropertyName("WS_PROMO_SK")]
-	public Int32? WsPromoSk  { get; set; }
+	[PropertyName("WS_COUPON_AMT")]
+	public Int32? WsCouponAmt  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_NET_PAID_INC_TAX value.
 	/// </summary>
 	[PropertyName("WS_NET_PAID_INC_TAX")]
 	public Int32? WsNetPaidIncTax  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the WS_PROMO_SK value.
+	/// </summary>
+	[PropertyName("WS_PROMO_SK")]
+	public Int32? WsPromoSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_BILL_ADDR_SK value.
@@ -153,16 +153,16 @@ public class WebSales
 	public Int32? WsNetProfit  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WS_WEB_SITE_SK value.
-	/// </summary>
-	[PropertyName("WS_WEB_SITE_SK")]
-	public Int32? WsWebSiteSk  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WS_ORDER_NUMBER value.
 	/// </summary>
 	[PropertyName("WS_ORDER_NUMBER")]
 	public Int32? WsOrderNumber  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the WS_WEB_SITE_SK value.
+	/// </summary>
+	[PropertyName("WS_WEB_SITE_SK")]
+	public Int32? WsWebSiteSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_BILL_CDEMO_SK value.
@@ -189,16 +189,16 @@ public class WebSales
 	public Int32? WsShipCdemoSk  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WS_NET_PAID value.
-	/// </summary>
-	[PropertyName("WS_NET_PAID")]
-	public Int32? WsNetPaid  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WS_SHIP_MODE_SK value.
 	/// </summary>
 	[PropertyName("WS_SHIP_MODE_SK")]
 	public Int32? WsShipModeSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the WS_NET_PAID value.
+	/// </summary>
+	[PropertyName("WS_NET_PAID")]
+	public Int32? WsNetPaid  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_EXT_SHIP_COST value.

@@ -141,16 +141,16 @@ public class WebSite
 	public String? WebCounty  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WEB_SITE_ID value.
-	/// </summary>
-	[PropertyName("WEB_SITE_ID")]
-	public String? WebSiteId  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WEB_ZIP value.
 	/// </summary>
 	[PropertyName("WEB_ZIP")]
 	public String? WebZip  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the WEB_SITE_ID value.
+	/// </summary>
+	[PropertyName("WEB_SITE_ID")]
+	public String? WebSiteId  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WEB_COUNTRY value.

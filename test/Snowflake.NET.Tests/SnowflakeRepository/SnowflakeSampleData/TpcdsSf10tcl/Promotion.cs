@@ -27,16 +27,16 @@ public class Promotion
 	public String? PChannelDemo  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the P_END_DATE_SK value.
-	/// </summary>
-	[PropertyName("P_END_DATE_SK")]
-	public Int32? PEndDateSk  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the P_CHANNEL_DETAILS value.
 	/// </summary>
 	[PropertyName("P_CHANNEL_DETAILS")]
 	public String? PChannelDetails  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the P_END_DATE_SK value.
+	/// </summary>
+	[PropertyName("P_END_DATE_SK")]
+	public Int32? PEndDateSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the P_CHANNEL_EVENT value.

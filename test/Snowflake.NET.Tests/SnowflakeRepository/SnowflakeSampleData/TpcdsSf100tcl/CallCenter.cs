@@ -105,16 +105,16 @@ public class CallCenter
 	public String? CcMarketManager  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CC_EMPLOYEES value.
-	/// </summary>
-	[PropertyName("CC_EMPLOYEES")]
-	public Int32? CcEmployees  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CC_STREET_NAME value.
 	/// </summary>
 	[PropertyName("CC_STREET_NAME")]
 	public String? CcStreetName  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CC_EMPLOYEES value.
+	/// </summary>
+	[PropertyName("CC_EMPLOYEES")]
+	public Int32? CcEmployees  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_NAME value.
