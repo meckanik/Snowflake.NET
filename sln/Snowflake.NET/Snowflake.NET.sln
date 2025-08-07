@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Scaffold", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Framework", "..\Snowflake.NET.Framework\Snowflake.NET.Framework.csproj", "{95282F41-F1BC-4A83-859A-44C010E934E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Tests", "..\Snowflake.NET.Tests.Functional\Snowflake.NET.Tests.csproj", "{19DD0EF5-D70F-46C9-AFFF-A438D849F44F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Tests", "..\Snowflake.NET.Tests\Snowflake.NET.Tests.csproj", "{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{95282F41-F1BC-4A83-859A-44C010E934E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95282F41-F1BC-4A83-859A-44C010E934E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95282F41-F1BC-4A83-859A-44C010E934E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19DD0EF5-D70F-46C9-AFFF-A438D849F44F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19DD0EF5-D70F-46C9-AFFF-A438D849F44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19DD0EF5-D70F-46C9-AFFF-A438D849F44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19DD0EF5-D70F-46C9-AFFF-A438D849F44F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
