@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Tests", "..\test\Snowflake.NET.Tests\Snowflake.NET.Tests.csproj", "{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET", "Snowflake.NET\Snowflake.NET.csproj", "{644B8DE4-6718-9A3A-19F8-AB0D28AF70F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Framework", "Snowflake.NET.Framework\Snowflake.NET.Framework.csproj", "{430920C8-776C-B212-8485-5433EC9D8F4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.NET.Scaffold", "Snowflake.NET.Scaffold\Snowflake.NET.Scaffold.csproj", "{A74BD0C6-55AC-1B76-1223-64000A7F96E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026608FE-D0E5-2F86-4ACB-728CFBB6AFCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{644B8DE4-6718-9A3A-19F8-AB0D28AF70F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644B8DE4-6718-9A3A-19F8-AB0D28AF70F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{644B8DE4-6718-9A3A-19F8-AB0D28AF70F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644B8DE4-6718-9A3A-19F8-AB0D28AF70F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{430920C8-776C-B212-8485-5433EC9D8F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{430920C8-776C-B212-8485-5433EC9D8F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{430920C8-776C-B212-8485-5433EC9D8F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{430920C8-776C-B212-8485-5433EC9D8F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74BD0C6-55AC-1B76-1223-64000A7F96E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74BD0C6-55AC-1B76-1223-64000A7F96E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74BD0C6-55AC-1B76-1223-64000A7F96E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74BD0C6-55AC-1B76-1223-64000A7F96E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {033BD733-2D98-4F8E-90F6-15F8B6024E31}
+	EndGlobalSection
+EndGlobal

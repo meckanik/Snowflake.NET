@@ -11,15 +11,11 @@
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Snowflake.NET.Framework\Snowflake.NET.Framework.csproj" />
-    <ProjectReference Include="..\Snowflake.NET.Scaffold\Snowflake.NET.Scaffold.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +24,11 @@
 
   <ItemGroup>
     <Folder Include="SnowflakeRepository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Snowflake.NET.Framework\Snowflake.NET.Framework.csproj" />
+    <ProjectReference Include="..\..\src\Snowflake.NET.Scaffold\Snowflake.NET.Scaffold.csproj" />
   </ItemGroup>
 
 </Project>
