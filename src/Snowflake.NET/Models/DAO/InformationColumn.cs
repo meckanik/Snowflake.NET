@@ -40,5 +40,10 @@ public class InformationColumn
     ///     Gets or sets the DATA_TYPE value.
     /// </summary>
     public string? DATA_TYPE { get; set; }
+
+    /// <summary>
+    ///     Gets or sets the NUMERIC_SCALE value.
+    /// </summary>
+    public int? NUMERIC_SCALE { get; set; }
 #pragma warning restore CA1707 // Identifiers should not contain underscores
 }

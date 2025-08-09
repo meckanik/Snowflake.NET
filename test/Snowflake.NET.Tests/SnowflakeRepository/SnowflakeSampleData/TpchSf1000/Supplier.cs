@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf1000
 /// <summary>
 ///		Property class for the SUPPLIER table.
 /// </summary>
-[TableName("SUPPLIER")]
+[TableName("TPCH_SF1000.SUPPLIER")]
 public class Supplier
 {
 	/// <summary>
@@ -27,16 +27,16 @@ public class Supplier
 	public String? SName  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the S_NATIONKEY value.
-	/// </summary>
-	[PropertyName("S_NATIONKEY")]
-	public Int32? SNationkey  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the S_ADDRESS value.
 	/// </summary>
 	[PropertyName("S_ADDRESS")]
 	public String? SAddress  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the S_NATIONKEY value.
+	/// </summary>
+	[PropertyName("S_NATIONKEY")]
+	public Int32? SNationkey  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the S_COMMENT value.
@@ -48,5 +48,5 @@ public class Supplier
 	///	Gets or sets the S_ACCTBAL value.
 	/// </summary>
 	[PropertyName("S_ACCTBAL")]
-	public Int32? SAcctbal  { get; set; }
+	public Decimal? SAcctbal  { get; set; }
 }

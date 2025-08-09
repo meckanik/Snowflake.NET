@@ -24,7 +24,6 @@ namespace Snowflake.NET.Tests.Functional
                 @"C:\development\Snowflake.NET\test\Snowflake.NET.Tests");
 
             Assert.Throws<ArgumentException>(() => status.ScaffoldDatabase());
-            //Assert.Throws<IndexOutOfRangeException>(() => status.ScaffoldDatabase());
             Assert.Equals(status, true);
         }
     }

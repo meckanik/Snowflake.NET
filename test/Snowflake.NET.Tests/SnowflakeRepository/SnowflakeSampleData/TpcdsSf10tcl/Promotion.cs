@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the PROMOTION table.
 /// </summary>
-[TableName("PROMOTION")]
+[TableName("TPCDS_SF10TCL.PROMOTION")]
 public class Promotion
 {
 	/// <summary>
@@ -60,7 +60,7 @@ public class Promotion
 	///	Gets or sets the P_COST value.
 	/// </summary>
 	[PropertyName("P_COST")]
-	public Int32? PCost  { get; set; }
+	public Decimal? PCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the P_PROMO_NAME value.

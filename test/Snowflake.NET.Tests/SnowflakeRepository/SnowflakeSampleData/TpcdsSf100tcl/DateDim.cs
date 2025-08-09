@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the DATE_DIM table.
 /// </summary>
-[TableName("DATE_DIM")]
+[TableName("TPCDS_SF100TCL.DATE_DIM")]
 public class DateDim
 {
 	/// <summary>
@@ -99,16 +99,16 @@ public class DateDim
 	public String? DDateId  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the D_CURRENT_YEAR value.
-	/// </summary>
-	[PropertyName("D_CURRENT_YEAR")]
-	public String? DCurrentYear  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the D_SAME_DAY_LY value.
 	/// </summary>
 	[PropertyName("D_SAME_DAY_LY")]
 	public Int32? DSameDayLy  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the D_CURRENT_YEAR value.
+	/// </summary>
+	[PropertyName("D_CURRENT_YEAR")]
+	public String? DCurrentYear  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the D_SAME_DAY_LQ value.
@@ -165,14 +165,14 @@ public class DateDim
 	public Int32? DWeekSeq  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the D_WEEKEND value.
-	/// </summary>
-	[PropertyName("D_WEEKEND")]
-	public String? DWeekend  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the D_FY_QUARTER_SEQ value.
 	/// </summary>
 	[PropertyName("D_FY_QUARTER_SEQ")]
 	public Int32? DFyQuarterSeq  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the D_WEEKEND value.
+	/// </summary>
+	[PropertyName("D_WEEKEND")]
+	public String? DWeekend  { get; set; }
 }

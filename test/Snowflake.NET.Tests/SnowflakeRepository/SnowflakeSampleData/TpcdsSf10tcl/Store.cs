@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the STORE table.
 /// </summary>
-[TableName("STORE")]
+[TableName("TPCDS_SF10TCL.STORE")]
 public class Store
 {
 	/// <summary>
@@ -75,16 +75,16 @@ public class Store
 	public Int32? SMarketId  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the S_NUMBER_EMPLOYEES value.
-	/// </summary>
-	[PropertyName("S_NUMBER_EMPLOYEES")]
-	public Int32? SNumberEmployees  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the S_MARKET_DESC value.
 	/// </summary>
 	[PropertyName("S_MARKET_DESC")]
 	public String? SMarketDesc  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the S_NUMBER_EMPLOYEES value.
+	/// </summary>
+	[PropertyName("S_NUMBER_EMPLOYEES")]
+	public Int32? SNumberEmployees  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the S_DIVISION_NAME value.
@@ -105,16 +105,16 @@ public class Store
 	public DateTime? SRecEndDate  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the S_STREET_NAME value.
-	/// </summary>
-	[PropertyName("S_STREET_NAME")]
-	public String? SStreetName  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the S_REC_START_DATE value.
 	/// </summary>
 	[PropertyName("S_REC_START_DATE")]
 	public DateTime? SRecStartDate  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the S_STREET_NAME value.
+	/// </summary>
+	[PropertyName("S_STREET_NAME")]
+	public String? SStreetName  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the S_MANAGER value.
@@ -138,19 +138,19 @@ public class Store
 	///	Gets or sets the S_GMT_OFFSET value.
 	/// </summary>
 	[PropertyName("S_GMT_OFFSET")]
-	public Int32? SGmtOffset  { get; set; }
-
-	/// <summary>
-	///	Gets or sets the S_TAX_PRECENTAGE value.
-	/// </summary>
-	[PropertyName("S_TAX_PRECENTAGE")]
-	public Int32? STaxPrecentage  { get; set; }
+	public Decimal? SGmtOffset  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the S_COUNTRY value.
 	/// </summary>
 	[PropertyName("S_COUNTRY")]
 	public String? SCountry  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the S_TAX_PRECENTAGE value.
+	/// </summary>
+	[PropertyName("S_TAX_PRECENTAGE")]
+	public Decimal? STaxPrecentage  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the S_HOURS value.

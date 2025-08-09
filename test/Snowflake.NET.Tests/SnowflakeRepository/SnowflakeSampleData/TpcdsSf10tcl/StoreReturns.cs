@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the STORE_RETURNS table.
 /// </summary>
-[TableName("STORE_RETURNS")]
+[TableName("TPCDS_SF10TCL.STORE_RETURNS")]
 public class StoreReturns
 {
 	/// <summary>
@@ -24,13 +24,13 @@ public class StoreReturns
 	///	Gets or sets the SR_REVERSED_CHARGE value.
 	/// </summary>
 	[PropertyName("SR_REVERSED_CHARGE")]
-	public Int32? SrReversedCharge  { get; set; }
+	public Decimal? SrReversedCharge  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_RETURN_AMT_INC_TAX value.
 	/// </summary>
 	[PropertyName("SR_RETURN_AMT_INC_TAX")]
-	public Int32? SrReturnAmtIncTax  { get; set; }
+	public Decimal? SrReturnAmtIncTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_REASON_SK value.
@@ -39,16 +39,16 @@ public class StoreReturns
 	public Int32? SrReasonSk  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the SR_NET_LOSS value.
-	/// </summary>
-	[PropertyName("SR_NET_LOSS")]
-	public Int32? SrNetLoss  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the SR_TICKET_NUMBER value.
 	/// </summary>
 	[PropertyName("SR_TICKET_NUMBER")]
 	public Int32? SrTicketNumber  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the SR_NET_LOSS value.
+	/// </summary>
+	[PropertyName("SR_NET_LOSS")]
+	public Decimal? SrNetLoss  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_ITEM_SK value.
@@ -60,19 +60,19 @@ public class StoreReturns
 	///	Gets or sets the SR_RETURN_AMT value.
 	/// </summary>
 	[PropertyName("SR_RETURN_AMT")]
-	public Int32? SrReturnAmt  { get; set; }
+	public Decimal? SrReturnAmt  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_RETURN_TAX value.
 	/// </summary>
 	[PropertyName("SR_RETURN_TAX")]
-	public Int32? SrReturnTax  { get; set; }
+	public Decimal? SrReturnTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_REFUNDED_CASH value.
 	/// </summary>
 	[PropertyName("SR_REFUNDED_CASH")]
-	public Int32? SrRefundedCash  { get; set; }
+	public Decimal? SrRefundedCash  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_RETURN_QUANTITY value.
@@ -84,19 +84,19 @@ public class StoreReturns
 	///	Gets or sets the SR_FEE value.
 	/// </summary>
 	[PropertyName("SR_FEE")]
-	public Int32? SrFee  { get; set; }
+	public Decimal? SrFee  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_STORE_CREDIT value.
 	/// </summary>
 	[PropertyName("SR_STORE_CREDIT")]
-	public Int32? SrStoreCredit  { get; set; }
+	public Decimal? SrStoreCredit  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_RETURN_SHIP_COST value.
 	/// </summary>
 	[PropertyName("SR_RETURN_SHIP_COST")]
-	public Int32? SrReturnShipCost  { get; set; }
+	public Decimal? SrReturnShipCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SR_STORE_SK value.

@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the SHIP_MODE table.
 /// </summary>
-[TableName("SHIP_MODE")]
+[TableName("TPCDS_SF100TCL.SHIP_MODE")]
 public class ShipMode
 {
 	/// <summary>

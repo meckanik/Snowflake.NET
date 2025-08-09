@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the INCOME_BAND table.
 /// </summary>
-[TableName("INCOME_BAND")]
+[TableName("TPCDS_SF100TCL.INCOME_BAND")]
 public class IncomeBand
 {
 	/// <summary>

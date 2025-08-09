@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf1;
 /// <summary>
 ///		Property class for the PART table.
 /// </summary>
-[TableName("PART")]
+[TableName("TPCH_SF1.PART")]
 public class Part
 {
 	/// <summary>
@@ -18,7 +18,7 @@ public class Part
 	///	Gets or sets the P_RETAILPRICE value.
 	/// </summary>
 	[PropertyName("P_RETAILPRICE")]
-	public Int32? PRetailprice  { get; set; }
+	public Decimal? PRetailprice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the P_SIZE value.

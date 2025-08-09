@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the PROMOTION table.
 /// </summary>
-[TableName("PROMOTION")]
+[TableName("TPCDS_SF100TCL.PROMOTION")]
 public class Promotion
 {
 	/// <summary>
@@ -81,16 +81,16 @@ public class Promotion
 	public String? PChannelTv  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the P_CHANNEL_CATALOG value.
-	/// </summary>
-	[PropertyName("P_CHANNEL_CATALOG")]
-	public String? PChannelCatalog  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the P_END_DATE_SK value.
 	/// </summary>
 	[PropertyName("P_END_DATE_SK")]
 	public Int32? PEndDateSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the P_CHANNEL_CATALOG value.
+	/// </summary>
+	[PropertyName("P_CHANNEL_CATALOG")]
+	public String? PChannelCatalog  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the P_START_DATE_SK value.
@@ -108,7 +108,7 @@ public class Promotion
 	///	Gets or sets the P_COST value.
 	/// </summary>
 	[PropertyName("P_COST")]
-	public Int32? PCost  { get; set; }
+	public Decimal? PCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the P_CHANNEL_DEMO value.

@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the ITEM table.
 /// </summary>
-[TableName("ITEM")]
+[TableName("TPCDS_SF100TCL.ITEM")]
 public class Item
 {
 	/// <summary>
@@ -18,7 +18,7 @@ public class Item
 	///	Gets or sets the I_CURRENT_PRICE value.
 	/// </summary>
 	[PropertyName("I_CURRENT_PRICE")]
-	public Int32? ICurrentPrice  { get; set; }
+	public Decimal? ICurrentPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the I_MANUFACT value.
@@ -114,7 +114,7 @@ public class Item
 	///	Gets or sets the I_WHOLESALE_COST value.
 	/// </summary>
 	[PropertyName("I_WHOLESALE_COST")]
-	public Int32? IWholesaleCost  { get; set; }
+	public Decimal? IWholesaleCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the I_CONTAINER value.

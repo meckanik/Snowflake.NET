@@ -5,20 +5,20 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf1000
 /// <summary>
 ///		Property class for the LINEITEM table.
 /// </summary>
-[TableName("LINEITEM")]
+[TableName("TPCH_SF1000.LINEITEM")]
 public class Lineitem
 {
 	/// <summary>
 	///	Gets or sets the L_EXTENDEDPRICE value.
 	/// </summary>
 	[PropertyName("L_EXTENDEDPRICE")]
-	public Int32? LExtendedprice  { get; set; }
+	public Decimal? LExtendedprice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the L_TAX value.
 	/// </summary>
 	[PropertyName("L_TAX")]
-	public Int32? LTax  { get; set; }
+	public Decimal? LTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the L_LINESTATUS value.
@@ -30,7 +30,7 @@ public class Lineitem
 	///	Gets or sets the L_QUANTITY value.
 	/// </summary>
 	[PropertyName("L_QUANTITY")]
-	public Int32? LQuantity  { get; set; }
+	public Decimal? LQuantity  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the L_SUPPKEY value.
@@ -102,5 +102,5 @@ public class Lineitem
 	///	Gets or sets the L_DISCOUNT value.
 	/// </summary>
 	[PropertyName("L_DISCOUNT")]
-	public Int32? LDiscount  { get; set; }
+	public Decimal? LDiscount  { get; set; }
 }

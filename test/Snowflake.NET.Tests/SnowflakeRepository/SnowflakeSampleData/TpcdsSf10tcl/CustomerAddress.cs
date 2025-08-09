@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the CUSTOMER_ADDRESS table.
 /// </summary>
-[TableName("CUSTOMER_ADDRESS")]
+[TableName("TPCDS_SF10TCL.CUSTOMER_ADDRESS")]
 public class CustomerAddress
 {
 	/// <summary>
@@ -54,7 +54,7 @@ public class CustomerAddress
 	///	Gets or sets the CA_GMT_OFFSET value.
 	/// </summary>
 	[PropertyName("CA_GMT_OFFSET")]
-	public Int32? CaGmtOffset  { get; set; }
+	public Decimal? CaGmtOffset  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CA_SUITE_NUMBER value.

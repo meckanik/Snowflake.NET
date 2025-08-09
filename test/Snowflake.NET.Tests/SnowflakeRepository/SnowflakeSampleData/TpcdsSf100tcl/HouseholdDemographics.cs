@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the HOUSEHOLD_DEMOGRAPHICS table.
 /// </summary>
-[TableName("HOUSEHOLD_DEMOGRAPHICS")]
+[TableName("TPCDS_SF100TCL.HOUSEHOLD_DEMOGRAPHICS")]
 public class HouseholdDemographics
 {
 	/// <summary>

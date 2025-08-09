@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the ITEM table.
 /// </summary>
-[TableName("ITEM")]
+[TableName("TPCDS_SF10TCL.ITEM")]
 public class Item
 {
 	/// <summary>
@@ -21,16 +21,16 @@ public class Item
 	public String? IBrand  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the I_FORMULATION value.
-	/// </summary>
-	[PropertyName("I_FORMULATION")]
-	public String? IFormulation  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the I_CLASS_ID value.
 	/// </summary>
 	[PropertyName("I_CLASS_ID")]
 	public Int32? IClassId  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the I_FORMULATION value.
+	/// </summary>
+	[PropertyName("I_FORMULATION")]
+	public String? IFormulation  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the I_MANUFACT value.
@@ -42,7 +42,7 @@ public class Item
 	///	Gets or sets the I_CURRENT_PRICE value.
 	/// </summary>
 	[PropertyName("I_CURRENT_PRICE")]
-	public Int32? ICurrentPrice  { get; set; }
+	public Decimal? ICurrentPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the I_PRODUCT_NAME value.
@@ -72,7 +72,7 @@ public class Item
 	///	Gets or sets the I_WHOLESALE_COST value.
 	/// </summary>
 	[PropertyName("I_WHOLESALE_COST")]
-	public Int32? IWholesaleCost  { get; set; }
+	public Decimal? IWholesaleCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the I_REC_START_DATE value.
@@ -81,16 +81,16 @@ public class Item
 	public DateTime? IRecStartDate  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the I_UNITS value.
-	/// </summary>
-	[PropertyName("I_UNITS")]
-	public String? IUnits  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the I_ITEM_DESC value.
 	/// </summary>
 	[PropertyName("I_ITEM_DESC")]
 	public String? IItemDesc  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the I_UNITS value.
+	/// </summary>
+	[PropertyName("I_UNITS")]
+	public String? IUnits  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the I_REC_END_DATE value.

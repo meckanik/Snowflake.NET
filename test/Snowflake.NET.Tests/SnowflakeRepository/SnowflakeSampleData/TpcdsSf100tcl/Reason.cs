@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the REASON table.
 /// </summary>
-[TableName("REASON")]
+[TableName("TPCDS_SF100TCL.REASON")]
 public class Reason
 {
 	/// <summary>

@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf10;
 /// <summary>
 ///		Property class for the NATION table.
 /// </summary>
-[TableName("NATION")]
+[TableName("TPCH_SF10.NATION")]
 public class Nation
 {
 	/// <summary>

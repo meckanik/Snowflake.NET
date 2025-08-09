@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the WEB_SALES table.
 /// </summary>
-[TableName("WEB_SALES")]
+[TableName("TPCDS_SF100TCL.WEB_SALES")]
 public class WebSales
 {
 	/// <summary>
@@ -30,13 +30,13 @@ public class WebSales
 	///	Gets or sets the WS_EXT_SHIP_COST value.
 	/// </summary>
 	[PropertyName("WS_EXT_SHIP_COST")]
-	public Int32? WsExtShipCost  { get; set; }
+	public Decimal? WsExtShipCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_EXT_TAX value.
 	/// </summary>
 	[PropertyName("WS_EXT_TAX")]
-	public Int32? WsExtTax  { get; set; }
+	public Decimal? WsExtTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_SHIP_ADDR_SK value.
@@ -48,7 +48,7 @@ public class WebSales
 	///	Gets or sets the WS_SALES_PRICE value.
 	/// </summary>
 	[PropertyName("WS_SALES_PRICE")]
-	public Int32? WsSalesPrice  { get; set; }
+	public Decimal? WsSalesPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_SHIP_MODE_SK value.
@@ -60,13 +60,13 @@ public class WebSales
 	///	Gets or sets the WS_NET_PAID value.
 	/// </summary>
 	[PropertyName("WS_NET_PAID")]
-	public Int32? WsNetPaid  { get; set; }
+	public Decimal? WsNetPaid  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_NET_PAID_INC_SHIP value.
 	/// </summary>
 	[PropertyName("WS_NET_PAID_INC_SHIP")]
-	public Int32? WsNetPaidIncShip  { get; set; }
+	public Decimal? WsNetPaidIncShip  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_BILL_ADDR_SK value.
@@ -78,13 +78,13 @@ public class WebSales
 	///	Gets or sets the WS_COUPON_AMT value.
 	/// </summary>
 	[PropertyName("WS_COUPON_AMT")]
-	public Int32? WsCouponAmt  { get; set; }
+	public Decimal? WsCouponAmt  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_EXT_WHOLESALE_COST value.
 	/// </summary>
 	[PropertyName("WS_EXT_WHOLESALE_COST")]
-	public Int32? WsExtWholesaleCost  { get; set; }
+	public Decimal? WsExtWholesaleCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_SHIP_DATE_SK value.
@@ -96,7 +96,7 @@ public class WebSales
 	///	Gets or sets the WS_EXT_DISCOUNT_AMT value.
 	/// </summary>
 	[PropertyName("WS_EXT_DISCOUNT_AMT")]
-	public Int32? WsExtDiscountAmt  { get; set; }
+	public Decimal? WsExtDiscountAmt  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_BILL_HDEMO_SK value.
@@ -111,22 +111,22 @@ public class WebSales
 	public Int32? WsWarehouseSk  { get; set; }
 
 	/// <summary>
+	///	Gets or sets the WS_WHOLESALE_COST value.
+	/// </summary>
+	[PropertyName("WS_WHOLESALE_COST")]
+	public Decimal? WsWholesaleCost  { get; set; }
+
+	/// <summary>
 	///	Gets or sets the WS_ORDER_NUMBER value.
 	/// </summary>
 	[PropertyName("WS_ORDER_NUMBER")]
 	public Int32? WsOrderNumber  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WS_WHOLESALE_COST value.
-	/// </summary>
-	[PropertyName("WS_WHOLESALE_COST")]
-	public Int32? WsWholesaleCost  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WS_EXT_SALES_PRICE value.
 	/// </summary>
 	[PropertyName("WS_EXT_SALES_PRICE")]
-	public Int32? WsExtSalesPrice  { get; set; }
+	public Decimal? WsExtSalesPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_SOLD_TIME_SK value.
@@ -174,31 +174,31 @@ public class WebSales
 	///	Gets or sets the WS_LIST_PRICE value.
 	/// </summary>
 	[PropertyName("WS_LIST_PRICE")]
-	public Int32? WsListPrice  { get; set; }
+	public Decimal? WsListPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_EXT_LIST_PRICE value.
 	/// </summary>
 	[PropertyName("WS_EXT_LIST_PRICE")]
-	public Int32? WsExtListPrice  { get; set; }
+	public Decimal? WsExtListPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_NET_PAID_INC_SHIP_TAX value.
 	/// </summary>
 	[PropertyName("WS_NET_PAID_INC_SHIP_TAX")]
-	public Int32? WsNetPaidIncShipTax  { get; set; }
+	public Decimal? WsNetPaidIncShipTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_NET_PAID_INC_TAX value.
 	/// </summary>
 	[PropertyName("WS_NET_PAID_INC_TAX")]
-	public Int32? WsNetPaidIncTax  { get; set; }
+	public Decimal? WsNetPaidIncTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_NET_PROFIT value.
 	/// </summary>
 	[PropertyName("WS_NET_PROFIT")]
-	public Int32? WsNetProfit  { get; set; }
+	public Decimal? WsNetProfit  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WS_WEB_PAGE_SK value.

@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the WEB_PAGE table.
 /// </summary>
-[TableName("WEB_PAGE")]
+[TableName("TPCDS_SF100TCL.WEB_PAGE")]
 public class WebPage
 {
 	/// <summary>

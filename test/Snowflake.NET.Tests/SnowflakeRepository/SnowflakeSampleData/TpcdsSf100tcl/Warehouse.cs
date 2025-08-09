@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the WAREHOUSE table.
 /// </summary>
-[TableName("WAREHOUSE")]
+[TableName("TPCDS_SF100TCL.WAREHOUSE")]
 public class Warehouse
 {
 	/// <summary>
@@ -66,7 +66,7 @@ public class Warehouse
 	///	Gets or sets the W_GMT_OFFSET value.
 	/// </summary>
 	[PropertyName("W_GMT_OFFSET")]
-	public Int32? WGmtOffset  { get; set; }
+	public Decimal? WGmtOffset  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the W_COUNTRY value.

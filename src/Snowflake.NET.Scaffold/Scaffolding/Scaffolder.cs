@@ -5,6 +5,7 @@ using Snowflake.NET.Validation;
 using Snowflake.Data.Client;
 using Snowflake.Data.Core;
 using Snowflake.NET.Models;
+using Snowflake.NET.Framework.Snowflake;
 
 namespace Snowflake.NET.Scaffold.Scaffolding;
 

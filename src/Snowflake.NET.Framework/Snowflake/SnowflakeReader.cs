@@ -1,11 +1,10 @@
 ﻿using System.Data;
 using System.Text;
-using Newtonsoft.Json;
 using Snowflake.NET.Connector;
 using Snowflake.NET.Constants;
 using Snowflake.NET.Validation;
 
-namespace Snowflake.NET.Scaffold.Scaffolding;
+namespace Snowflake.NET.Framework.Snowflake;
 
 /// <summary>
 ///     Contains methods for reading Snowflake API return data.
@@ -35,7 +34,7 @@ public static class SnowflakeReader
                     propList.Add(reader.GetName(indx));
                 }
 
-                var builder = new JsonBuilder(propList);
+                var builder = new ObjectDeserializer<T>(propList);
                 while (reader.Read())
                 {
                     var sb = new StringBuilder();
@@ -44,10 +43,8 @@ public static class SnowflakeReader
                         sb.Append($"{reader.GetString(indx)}{JsonConstants.Seperator}");
                     }
 
-                    builder.AddSerializedObject(sb.ToString());
+                    result.Add(builder.Deserialize(sb.ToString()));
                 }
-
-                result.AddRange(JsonConvert.DeserializeObject<IEnumerable<T>>(builder.ToString())!);
             }
         }
 

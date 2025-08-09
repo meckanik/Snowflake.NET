@@ -5,14 +5,14 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf1000
 /// <summary>
 ///		Property class for the CUSTOMER table.
 /// </summary>
-[TableName("CUSTOMER")]
+[TableName("TPCH_SF1000.CUSTOMER")]
 public class Customer
 {
 	/// <summary>
 	///	Gets or sets the C_ACCTBAL value.
 	/// </summary>
 	[PropertyName("C_ACCTBAL")]
-	public Int32? CAcctbal  { get; set; }
+	public Decimal? CAcctbal  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the C_COMMENT value.

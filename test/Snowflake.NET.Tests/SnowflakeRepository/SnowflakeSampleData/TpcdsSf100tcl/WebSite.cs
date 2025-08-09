@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the WEB_SITE table.
 /// </summary>
-[TableName("WEB_SITE")]
+[TableName("TPCDS_SF100TCL.WEB_SITE")]
 public class WebSite
 {
 	/// <summary>
@@ -39,16 +39,16 @@ public class WebSite
 	public String? WebSuiteNumber  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WEB_NAME value.
-	/// </summary>
-	[PropertyName("WEB_NAME")]
-	public String? WebName  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WEB_REC_START_DATE value.
 	/// </summary>
 	[PropertyName("WEB_REC_START_DATE")]
 	public DateTime? WebRecStartDate  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the WEB_NAME value.
+	/// </summary>
+	[PropertyName("WEB_NAME")]
+	public String? WebName  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WEB_MARKET_MANAGER value.
@@ -120,13 +120,13 @@ public class WebSite
 	///	Gets or sets the WEB_TAX_PERCENTAGE value.
 	/// </summary>
 	[PropertyName("WEB_TAX_PERCENTAGE")]
-	public Int32? WebTaxPercentage  { get; set; }
+	public Decimal? WebTaxPercentage  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WEB_GMT_OFFSET value.
 	/// </summary>
 	[PropertyName("WEB_GMT_OFFSET")]
-	public Int32? WebGmtOffset  { get; set; }
+	public Decimal? WebGmtOffset  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WEB_STREET_TYPE value.
@@ -141,16 +141,16 @@ public class WebSite
 	public String? WebCounty  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the WEB_ZIP value.
-	/// </summary>
-	[PropertyName("WEB_ZIP")]
-	public String? WebZip  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the WEB_SITE_ID value.
 	/// </summary>
 	[PropertyName("WEB_SITE_ID")]
 	public String? WebSiteId  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the WEB_ZIP value.
+	/// </summary>
+	[PropertyName("WEB_ZIP")]
+	public String? WebZip  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WEB_COUNTRY value.

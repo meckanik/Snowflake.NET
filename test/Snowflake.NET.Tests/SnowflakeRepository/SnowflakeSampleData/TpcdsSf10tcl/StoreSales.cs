@@ -5,20 +5,14 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the STORE_SALES table.
 /// </summary>
-[TableName("STORE_SALES")]
+[TableName("TPCDS_SF10TCL.STORE_SALES")]
 public class StoreSales
 {
 	/// <summary>
 	///	Gets or sets the SS_WHOLESALE_COST value.
 	/// </summary>
 	[PropertyName("SS_WHOLESALE_COST")]
-	public Int32? SsWholesaleCost  { get; set; }
-
-	/// <summary>
-	///	Gets or sets the SS_EXT_SALES_PRICE value.
-	/// </summary>
-	[PropertyName("SS_EXT_SALES_PRICE")]
-	public Int32? SsExtSalesPrice  { get; set; }
+	public Decimal? SsWholesaleCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_PROMO_SK value.
@@ -27,16 +21,22 @@ public class StoreSales
 	public Int32? SsPromoSk  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the SS_QUANTITY value.
+	///	Gets or sets the SS_EXT_SALES_PRICE value.
 	/// </summary>
-	[PropertyName("SS_QUANTITY")]
-	public Int32? SsQuantity  { get; set; }
+	[PropertyName("SS_EXT_SALES_PRICE")]
+	public Decimal? SsExtSalesPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_EXT_DISCOUNT_AMT value.
 	/// </summary>
 	[PropertyName("SS_EXT_DISCOUNT_AMT")]
-	public Int32? SsExtDiscountAmt  { get; set; }
+	public Decimal? SsExtDiscountAmt  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the SS_QUANTITY value.
+	/// </summary>
+	[PropertyName("SS_QUANTITY")]
+	public Int32? SsQuantity  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_SOLD_DATE_SK value.
@@ -72,19 +72,19 @@ public class StoreSales
 	///	Gets or sets the SS_EXT_LIST_PRICE value.
 	/// </summary>
 	[PropertyName("SS_EXT_LIST_PRICE")]
-	public Int32? SsExtListPrice  { get; set; }
+	public Decimal? SsExtListPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_NET_PROFIT value.
 	/// </summary>
 	[PropertyName("SS_NET_PROFIT")]
-	public Int32? SsNetProfit  { get; set; }
+	public Decimal? SsNetProfit  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_NET_PAID_INC_TAX value.
 	/// </summary>
 	[PropertyName("SS_NET_PAID_INC_TAX")]
-	public Int32? SsNetPaidIncTax  { get; set; }
+	public Decimal? SsNetPaidIncTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_ADDR_SK value.
@@ -96,31 +96,31 @@ public class StoreSales
 	///	Gets or sets the SS_EXT_TAX value.
 	/// </summary>
 	[PropertyName("SS_EXT_TAX")]
-	public Int32? SsExtTax  { get; set; }
+	public Decimal? SsExtTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_COUPON_AMT value.
 	/// </summary>
 	[PropertyName("SS_COUPON_AMT")]
-	public Int32? SsCouponAmt  { get; set; }
+	public Decimal? SsCouponAmt  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_NET_PAID value.
 	/// </summary>
 	[PropertyName("SS_NET_PAID")]
-	public Int32? SsNetPaid  { get; set; }
+	public Decimal? SsNetPaid  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_EXT_WHOLESALE_COST value.
 	/// </summary>
 	[PropertyName("SS_EXT_WHOLESALE_COST")]
-	public Int32? SsExtWholesaleCost  { get; set; }
+	public Decimal? SsExtWholesaleCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_SALES_PRICE value.
 	/// </summary>
 	[PropertyName("SS_SALES_PRICE")]
-	public Int32? SsSalesPrice  { get; set; }
+	public Decimal? SsSalesPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_TICKET_NUMBER value.
@@ -132,7 +132,7 @@ public class StoreSales
 	///	Gets or sets the SS_LIST_PRICE value.
 	/// </summary>
 	[PropertyName("SS_LIST_PRICE")]
-	public Int32? SsListPrice  { get; set; }
+	public Decimal? SsListPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the SS_ITEM_SK value.

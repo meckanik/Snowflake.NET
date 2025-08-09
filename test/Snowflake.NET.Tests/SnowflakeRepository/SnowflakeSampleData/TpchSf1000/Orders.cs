@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf1000
 /// <summary>
 ///		Property class for the ORDERS table.
 /// </summary>
-[TableName("ORDERS")]
+[TableName("TPCH_SF1000.ORDERS")]
 public class Orders
 {
 	/// <summary>
@@ -24,7 +24,7 @@ public class Orders
 	///	Gets or sets the O_TOTALPRICE value.
 	/// </summary>
 	[PropertyName("O_TOTALPRICE")]
-	public Int32? OTotalprice  { get; set; }
+	public Decimal? OTotalprice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the O_SHIPPRIORITY value.

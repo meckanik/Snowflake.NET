@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the CALL_CENTER table.
 /// </summary>
-[TableName("CALL_CENTER")]
+[TableName("TPCDS_SF10TCL.CALL_CENTER")]
 public class CallCenter
 {
 	/// <summary>
@@ -30,7 +30,7 @@ public class CallCenter
 	///	Gets or sets the CC_GMT_OFFSET value.
 	/// </summary>
 	[PropertyName("CC_GMT_OFFSET")]
-	public Int32? CcGmtOffset  { get; set; }
+	public Decimal? CcGmtOffset  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_MKT_CLASS value.
@@ -69,16 +69,16 @@ public class CallCenter
 	public String? CcState  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CC_STREET_TYPE value.
-	/// </summary>
-	[PropertyName("CC_STREET_TYPE")]
-	public String? CcStreetType  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CC_COMPANY value.
 	/// </summary>
 	[PropertyName("CC_COMPANY")]
 	public Int32? CcCompany  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CC_STREET_TYPE value.
+	/// </summary>
+	[PropertyName("CC_STREET_TYPE")]
+	public String? CcStreetType  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_NAME value.
@@ -147,16 +147,16 @@ public class CallCenter
 	public Int32? CcSqFt  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CC_MKT_ID value.
-	/// </summary>
-	[PropertyName("CC_MKT_ID")]
-	public Int32? CcMktId  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CC_MANAGER value.
 	/// </summary>
 	[PropertyName("CC_MANAGER")]
 	public String? CcManager  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CC_MKT_ID value.
+	/// </summary>
+	[PropertyName("CC_MKT_ID")]
+	public Int32? CcMktId  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_CLOSED_DATE_SK value.
@@ -180,7 +180,7 @@ public class CallCenter
 	///	Gets or sets the CC_TAX_PERCENTAGE value.
 	/// </summary>
 	[PropertyName("CC_TAX_PERCENTAGE")]
-	public Int32? CcTaxPercentage  { get; set; }
+	public Decimal? CcTaxPercentage  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_MKT_DESC value.

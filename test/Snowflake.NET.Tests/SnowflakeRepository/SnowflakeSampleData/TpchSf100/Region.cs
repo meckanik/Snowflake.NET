@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf100;
 /// <summary>
 ///		Property class for the REGION table.
 /// </summary>
-[TableName("REGION")]
+[TableName("TPCH_SF100.REGION")]
 public class Region
 {
 	/// <summary>

@@ -5,20 +5,20 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the CATALOG_RETURNS table.
 /// </summary>
-[TableName("CATALOG_RETURNS")]
+[TableName("TPCDS_SF100TCL.CATALOG_RETURNS")]
 public class CatalogReturns
 {
-	/// <summary>
-	///	Gets or sets the CR_CALL_CENTER_SK value.
-	/// </summary>
-	[PropertyName("CR_CALL_CENTER_SK")]
-	public Int32? CrCallCenterSk  { get; set; }
-
 	/// <summary>
 	///	Gets or sets the CR_ORDER_NUMBER value.
 	/// </summary>
 	[PropertyName("CR_ORDER_NUMBER")]
 	public Int32? CrOrderNumber  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CR_CALL_CENTER_SK value.
+	/// </summary>
+	[PropertyName("CR_CALL_CENTER_SK")]
+	public Int32? CrCallCenterSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_RETURNING_CUSTOMER_SK value.
@@ -36,19 +36,13 @@ public class CatalogReturns
 	///	Gets or sets the CR_FEE value.
 	/// </summary>
 	[PropertyName("CR_FEE")]
-	public Int32? CrFee  { get; set; }
+	public Decimal? CrFee  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_RETURN_AMOUNT value.
 	/// </summary>
 	[PropertyName("CR_RETURN_AMOUNT")]
-	public Int32? CrReturnAmount  { get; set; }
-
-	/// <summary>
-	///	Gets or sets the CR_CATALOG_PAGE_SK value.
-	/// </summary>
-	[PropertyName("CR_CATALOG_PAGE_SK")]
-	public Int32? CrCatalogPageSk  { get; set; }
+	public Decimal? CrReturnAmount  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_ITEM_SK value.
@@ -57,10 +51,16 @@ public class CatalogReturns
 	public Int32? CrItemSk  { get; set; }
 
 	/// <summary>
+	///	Gets or sets the CR_CATALOG_PAGE_SK value.
+	/// </summary>
+	[PropertyName("CR_CATALOG_PAGE_SK")]
+	public Int32? CrCatalogPageSk  { get; set; }
+
+	/// <summary>
 	///	Gets or sets the CR_STORE_CREDIT value.
 	/// </summary>
 	[PropertyName("CR_STORE_CREDIT")]
-	public Int32? CrStoreCredit  { get; set; }
+	public Decimal? CrStoreCredit  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_RETURNING_HDEMO_SK value.
@@ -69,16 +69,16 @@ public class CatalogReturns
 	public Int32? CrReturningHdemoSk  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CR_RETURNING_ADDR_SK value.
-	/// </summary>
-	[PropertyName("CR_RETURNING_ADDR_SK")]
-	public Int32? CrReturningAddrSk  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CR_SHIP_MODE_SK value.
 	/// </summary>
 	[PropertyName("CR_SHIP_MODE_SK")]
 	public Int32? CrShipModeSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CR_RETURNING_ADDR_SK value.
+	/// </summary>
+	[PropertyName("CR_RETURNING_ADDR_SK")]
+	public Int32? CrReturningAddrSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_RETURNED_DATE_SK value.
@@ -96,7 +96,7 @@ public class CatalogReturns
 	///	Gets or sets the CR_REFUNDED_CASH value.
 	/// </summary>
 	[PropertyName("CR_REFUNDED_CASH")]
-	public Int32? CrRefundedCash  { get; set; }
+	public Decimal? CrRefundedCash  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_WAREHOUSE_SK value.
@@ -114,13 +114,13 @@ public class CatalogReturns
 	///	Gets or sets the CR_RETURN_TAX value.
 	/// </summary>
 	[PropertyName("CR_RETURN_TAX")]
-	public Int32? CrReturnTax  { get; set; }
+	public Decimal? CrReturnTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_RETURN_AMT_INC_TAX value.
 	/// </summary>
 	[PropertyName("CR_RETURN_AMT_INC_TAX")]
-	public Int32? CrReturnAmtIncTax  { get; set; }
+	public Decimal? CrReturnAmtIncTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_REFUNDED_CDEMO_SK value.
@@ -132,7 +132,7 @@ public class CatalogReturns
 	///	Gets or sets the CR_REVERSED_CHARGE value.
 	/// </summary>
 	[PropertyName("CR_REVERSED_CHARGE")]
-	public Int32? CrReversedCharge  { get; set; }
+	public Decimal? CrReversedCharge  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_RETURNING_CDEMO_SK value.
@@ -150,7 +150,7 @@ public class CatalogReturns
 	///	Gets or sets the CR_NET_LOSS value.
 	/// </summary>
 	[PropertyName("CR_NET_LOSS")]
-	public Int32? CrNetLoss  { get; set; }
+	public Decimal? CrNetLoss  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CR_RETURNED_TIME_SK value.
@@ -168,5 +168,5 @@ public class CatalogReturns
 	///	Gets or sets the CR_RETURN_SHIP_COST value.
 	/// </summary>
 	[PropertyName("CR_RETURN_SHIP_COST")]
-	public Int32? CrReturnShipCost  { get; set; }
+	public Decimal? CrReturnShipCost  { get; set; }
 }

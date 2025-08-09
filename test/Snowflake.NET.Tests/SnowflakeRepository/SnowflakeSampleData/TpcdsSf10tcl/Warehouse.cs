@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the WAREHOUSE table.
 /// </summary>
-[TableName("WAREHOUSE")]
+[TableName("TPCDS_SF10TCL.WAREHOUSE")]
 public class Warehouse
 {
 	/// <summary>
@@ -48,7 +48,7 @@ public class Warehouse
 	///	Gets or sets the W_GMT_OFFSET value.
 	/// </summary>
 	[PropertyName("W_GMT_OFFSET")]
-	public Int32? WGmtOffset  { get; set; }
+	public Decimal? WGmtOffset  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the W_STREET_TYPE value.

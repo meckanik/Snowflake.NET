@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf10;
 /// <summary>
 ///		Property class for the PARTSUPP table.
 /// </summary>
-[TableName("PARTSUPP")]
+[TableName("TPCH_SF10.PARTSUPP")]
 public class Partsupp
 {
 	/// <summary>
@@ -18,7 +18,7 @@ public class Partsupp
 	///	Gets or sets the PS_SUPPLYCOST value.
 	/// </summary>
 	[PropertyName("PS_SUPPLYCOST")]
-	public Int32? PsSupplycost  { get; set; }
+	public Decimal? PsSupplycost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the PS_SUPPKEY value.

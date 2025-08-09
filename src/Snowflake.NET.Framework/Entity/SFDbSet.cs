@@ -1,6 +1,8 @@
 ﻿using System.Linq.Expressions;
 using Snowflake.NET.Framework.Context;
+using Snowflake.NET.Framework.Expression;
 using Snowflake.NET.Framework.Interfaces;
+using Snowflake.NET.Framework.Sql;
 
 namespace Snowflake.NET.Framework.Entity;
 
@@ -11,6 +13,7 @@ namespace Snowflake.NET.Framework.Entity;
 public class SFDbSet<TEntity> : ISFDbSet<TEntity>
 {
     private readonly SFContext _context;
+    private readonly ExpressionParser _parser = new();
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="SFDbSet{TEntity}"/> class.
@@ -42,7 +45,18 @@ public class SFDbSet<TEntity> : ISFDbSet<TEntity>
     /// <inheritdoc />
     public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression)
     {
-        throw new NotImplementedException();
+        _parser.Visit(expression);
+
+        var comp = _parser.ExpressionComposition;
+        var tableMeta = EntityOperations.GetTableName(typeof(TEntity));
+        var options = new SqlActionOptions
+        {
+            Where = new List<ExpressionComposition> { comp }
+        };
+
+        var sql = SqlActions.SelectAll(tableMeta.TableName, tableMeta.SchemaName, options);
+
+        return _context.Execute<TEntity>(sql);
     }
 
     /// <inheritdoc />

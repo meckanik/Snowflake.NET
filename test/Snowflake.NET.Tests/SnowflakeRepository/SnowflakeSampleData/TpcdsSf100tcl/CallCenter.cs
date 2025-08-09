@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the CALL_CENTER table.
 /// </summary>
-[TableName("CALL_CENTER")]
+[TableName("TPCDS_SF100TCL.CALL_CENTER")]
 public class CallCenter
 {
 	/// <summary>
@@ -72,7 +72,7 @@ public class CallCenter
 	///	Gets or sets the CC_TAX_PERCENTAGE value.
 	/// </summary>
 	[PropertyName("CC_TAX_PERCENTAGE")]
-	public Int32? CcTaxPercentage  { get; set; }
+	public Decimal? CcTaxPercentage  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_DIVISION_NAME value.
@@ -105,16 +105,16 @@ public class CallCenter
 	public String? CcMarketManager  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the CC_STREET_NAME value.
-	/// </summary>
-	[PropertyName("CC_STREET_NAME")]
-	public String? CcStreetName  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the CC_EMPLOYEES value.
 	/// </summary>
 	[PropertyName("CC_EMPLOYEES")]
 	public Int32? CcEmployees  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the CC_STREET_NAME value.
+	/// </summary>
+	[PropertyName("CC_STREET_NAME")]
+	public String? CcStreetName  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_NAME value.
@@ -162,7 +162,7 @@ public class CallCenter
 	///	Gets or sets the CC_GMT_OFFSET value.
 	/// </summary>
 	[PropertyName("CC_GMT_OFFSET")]
-	public Int32? CcGmtOffset  { get; set; }
+	public Decimal? CcGmtOffset  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CC_CLASS value.

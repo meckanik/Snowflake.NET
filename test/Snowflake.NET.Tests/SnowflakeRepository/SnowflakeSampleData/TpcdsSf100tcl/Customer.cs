@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the CUSTOMER table.
 /// </summary>
-[TableName("CUSTOMER")]
+[TableName("TPCDS_SF100TCL.CUSTOMER")]
 public class Customer
 {
 	/// <summary>

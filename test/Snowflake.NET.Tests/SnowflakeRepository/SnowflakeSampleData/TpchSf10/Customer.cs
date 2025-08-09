@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpchSf10;
 /// <summary>
 ///		Property class for the CUSTOMER table.
 /// </summary>
-[TableName("CUSTOMER")]
+[TableName("TPCH_SF10.CUSTOMER")]
 public class Customer
 {
 	/// <summary>
@@ -30,7 +30,7 @@ public class Customer
 	///	Gets or sets the C_ACCTBAL value.
 	/// </summary>
 	[PropertyName("C_ACCTBAL")]
-	public Int32? CAcctbal  { get; set; }
+	public Decimal? CAcctbal  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the C_NAME value.
@@ -45,14 +45,14 @@ public class Customer
 	public String? CPhone  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the C_ADDRESS value.
-	/// </summary>
-	[PropertyName("C_ADDRESS")]
-	public String? CAddress  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the C_MKTSEGMENT value.
 	/// </summary>
 	[PropertyName("C_MKTSEGMENT")]
 	public String? CMktsegment  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the C_ADDRESS value.
+	/// </summary>
+	[PropertyName("C_ADDRESS")]
+	public String? CAddress  { get; set; }
 }

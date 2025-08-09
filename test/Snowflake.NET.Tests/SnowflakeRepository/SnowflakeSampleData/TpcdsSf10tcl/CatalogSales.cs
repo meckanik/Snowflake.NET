@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the CATALOG_SALES table.
 /// </summary>
-[TableName("CATALOG_SALES")]
+[TableName("TPCDS_SF10TCL.CATALOG_SALES")]
 public class CatalogSales
 {
 	/// <summary>
@@ -18,7 +18,7 @@ public class CatalogSales
 	///	Gets or sets the CS_NET_PAID_INC_TAX value.
 	/// </summary>
 	[PropertyName("CS_NET_PAID_INC_TAX")]
-	public Int32? CsNetPaidIncTax  { get; set; }
+	public Decimal? CsNetPaidIncTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_BILL_CDEMO_SK value.
@@ -42,7 +42,7 @@ public class CatalogSales
 	///	Gets or sets the CS_EXT_TAX value.
 	/// </summary>
 	[PropertyName("CS_EXT_TAX")]
-	public Int32? CsExtTax  { get; set; }
+	public Decimal? CsExtTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_BILL_HDEMO_SK value.
@@ -54,7 +54,7 @@ public class CatalogSales
 	///	Gets or sets the CS_EXT_LIST_PRICE value.
 	/// </summary>
 	[PropertyName("CS_EXT_LIST_PRICE")]
-	public Int32? CsExtListPrice  { get; set; }
+	public Decimal? CsExtListPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_SHIP_ADDR_SK value.
@@ -66,7 +66,7 @@ public class CatalogSales
 	///	Gets or sets the CS_EXT_SALES_PRICE value.
 	/// </summary>
 	[PropertyName("CS_EXT_SALES_PRICE")]
-	public Int32? CsExtSalesPrice  { get; set; }
+	public Decimal? CsExtSalesPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_SHIP_HDEMO_SK value.
@@ -78,7 +78,7 @@ public class CatalogSales
 	///	Gets or sets the CS_EXT_DISCOUNT_AMT value.
 	/// </summary>
 	[PropertyName("CS_EXT_DISCOUNT_AMT")]
-	public Int32? CsExtDiscountAmt  { get; set; }
+	public Decimal? CsExtDiscountAmt  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_BILL_CUSTOMER_SK value.
@@ -90,7 +90,7 @@ public class CatalogSales
 	///	Gets or sets the CS_NET_PAID_INC_SHIP_TAX value.
 	/// </summary>
 	[PropertyName("CS_NET_PAID_INC_SHIP_TAX")]
-	public Int32? CsNetPaidIncShipTax  { get; set; }
+	public Decimal? CsNetPaidIncShipTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_BILL_ADDR_SK value.
@@ -108,7 +108,7 @@ public class CatalogSales
 	///	Gets or sets the CS_COUPON_AMT value.
 	/// </summary>
 	[PropertyName("CS_COUPON_AMT")]
-	public Int32? CsCouponAmt  { get; set; }
+	public Decimal? CsCouponAmt  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_SOLD_DATE_SK value.
@@ -120,7 +120,7 @@ public class CatalogSales
 	///	Gets or sets the CS_WHOLESALE_COST value.
 	/// </summary>
 	[PropertyName("CS_WHOLESALE_COST")]
-	public Int32? CsWholesaleCost  { get; set; }
+	public Decimal? CsWholesaleCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_SHIP_CDEMO_SK value.
@@ -150,13 +150,13 @@ public class CatalogSales
 	///	Gets or sets the CS_NET_PROFIT value.
 	/// </summary>
 	[PropertyName("CS_NET_PROFIT")]
-	public Int32? CsNetProfit  { get; set; }
+	public Decimal? CsNetProfit  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_EXT_WHOLESALE_COST value.
 	/// </summary>
 	[PropertyName("CS_EXT_WHOLESALE_COST")]
-	public Int32? CsExtWholesaleCost  { get; set; }
+	public Decimal? CsExtWholesaleCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_CATALOG_PAGE_SK value.
@@ -168,19 +168,19 @@ public class CatalogSales
 	///	Gets or sets the CS_SALES_PRICE value.
 	/// </summary>
 	[PropertyName("CS_SALES_PRICE")]
-	public Int32? CsSalesPrice  { get; set; }
+	public Decimal? CsSalesPrice  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_EXT_SHIP_COST value.
 	/// </summary>
 	[PropertyName("CS_EXT_SHIP_COST")]
-	public Int32? CsExtShipCost  { get; set; }
+	public Decimal? CsExtShipCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_NET_PAID value.
 	/// </summary>
 	[PropertyName("CS_NET_PAID")]
-	public Int32? CsNetPaid  { get; set; }
+	public Decimal? CsNetPaid  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_WAREHOUSE_SK value.
@@ -198,7 +198,7 @@ public class CatalogSales
 	///	Gets or sets the CS_NET_PAID_INC_SHIP value.
 	/// </summary>
 	[PropertyName("CS_NET_PAID_INC_SHIP")]
-	public Int32? CsNetPaidIncShip  { get; set; }
+	public Decimal? CsNetPaidIncShip  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the CS_SOLD_TIME_SK value.
@@ -210,5 +210,5 @@ public class CatalogSales
 	///	Gets or sets the CS_LIST_PRICE value.
 	/// </summary>
 	[PropertyName("CS_LIST_PRICE")]
-	public Int32? CsListPrice  { get; set; }
+	public Decimal? CsListPrice  { get; set; }
 }

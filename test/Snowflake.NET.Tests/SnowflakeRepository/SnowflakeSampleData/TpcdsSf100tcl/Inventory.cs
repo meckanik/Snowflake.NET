@@ -5,20 +5,20 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the INVENTORY table.
 /// </summary>
-[TableName("INVENTORY")]
+[TableName("TPCDS_SF100TCL.INVENTORY")]
 public class Inventory
 {
-	/// <summary>
-	///	Gets or sets the INV_DATE_SK value.
-	/// </summary>
-	[PropertyName("INV_DATE_SK")]
-	public Int32? InvDateSk  { get; set; }
-
 	/// <summary>
 	///	Gets or sets the INV_ITEM_SK value.
 	/// </summary>
 	[PropertyName("INV_ITEM_SK")]
 	public Int32? InvItemSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the INV_DATE_SK value.
+	/// </summary>
+	[PropertyName("INV_DATE_SK")]
+	public Int32? InvDateSk  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the INV_QUANTITY_ON_HAND value.

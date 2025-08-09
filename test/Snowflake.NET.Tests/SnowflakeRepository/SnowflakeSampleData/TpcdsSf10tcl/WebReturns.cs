@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the WEB_RETURNS table.
 /// </summary>
-[TableName("WEB_RETURNS")]
+[TableName("TPCDS_SF10TCL.WEB_RETURNS")]
 public class WebReturns
 {
 	/// <summary>
@@ -42,7 +42,7 @@ public class WebReturns
 	///	Gets or sets the WR_FEE value.
 	/// </summary>
 	[PropertyName("WR_FEE")]
-	public Int32? WrFee  { get; set; }
+	public Decimal? WrFee  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_REFUNDED_CDEMO_SK value.
@@ -66,13 +66,13 @@ public class WebReturns
 	///	Gets or sets the WR_REVERSED_CHARGE value.
 	/// </summary>
 	[PropertyName("WR_REVERSED_CHARGE")]
-	public Int32? WrReversedCharge  { get; set; }
+	public Decimal? WrReversedCharge  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_RETURN_AMT value.
 	/// </summary>
 	[PropertyName("WR_RETURN_AMT")]
-	public Int32? WrReturnAmt  { get; set; }
+	public Decimal? WrReturnAmt  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_RETURN_QUANTITY value.
@@ -84,7 +84,7 @@ public class WebReturns
 	///	Gets or sets the WR_ACCOUNT_CREDIT value.
 	/// </summary>
 	[PropertyName("WR_ACCOUNT_CREDIT")]
-	public Int32? WrAccountCredit  { get; set; }
+	public Decimal? WrAccountCredit  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_RETURNING_HDEMO_SK value.
@@ -102,19 +102,19 @@ public class WebReturns
 	///	Gets or sets the WR_REFUNDED_CASH value.
 	/// </summary>
 	[PropertyName("WR_REFUNDED_CASH")]
-	public Int32? WrRefundedCash  { get; set; }
+	public Decimal? WrRefundedCash  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_RETURN_AMT_INC_TAX value.
 	/// </summary>
 	[PropertyName("WR_RETURN_AMT_INC_TAX")]
-	public Int32? WrReturnAmtIncTax  { get; set; }
+	public Decimal? WrReturnAmtIncTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_NET_LOSS value.
 	/// </summary>
 	[PropertyName("WR_NET_LOSS")]
-	public Int32? WrNetLoss  { get; set; }
+	public Decimal? WrNetLoss  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_REFUNDED_HDEMO_SK value.
@@ -126,7 +126,7 @@ public class WebReturns
 	///	Gets or sets the WR_RETURN_SHIP_COST value.
 	/// </summary>
 	[PropertyName("WR_RETURN_SHIP_COST")]
-	public Int32? WrReturnShipCost  { get; set; }
+	public Decimal? WrReturnShipCost  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_RETURNED_DATE_SK value.
@@ -144,7 +144,7 @@ public class WebReturns
 	///	Gets or sets the WR_RETURN_TAX value.
 	/// </summary>
 	[PropertyName("WR_RETURN_TAX")]
-	public Int32? WrReturnTax  { get; set; }
+	public Decimal? WrReturnTax  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the WR_RETURNING_CUSTOMER_SK value.

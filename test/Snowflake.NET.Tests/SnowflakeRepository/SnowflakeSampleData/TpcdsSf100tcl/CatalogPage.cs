@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the CATALOG_PAGE table.
 /// </summary>
-[TableName("CATALOG_PAGE")]
+[TableName("TPCDS_SF100TCL.CATALOG_PAGE")]
 public class CatalogPage
 {
 	/// <summary>

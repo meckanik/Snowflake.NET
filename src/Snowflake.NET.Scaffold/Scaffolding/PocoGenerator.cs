@@ -65,7 +65,7 @@ internal static class PocoGenerator
                     sb.AppendLine(_provider, $"namespace {currentNamespace};\r\n");
 
                     sb.AppendLine(GenerateClassComment(rawTableName!));
-                    sb.AppendLine(GenerateClassAttribute(rawTableName!));
+                    sb.AppendLine(GenerateClassAttribute(rawSchemaName!, rawTableName!));
                     sb.AppendLine(_provider, $"public class {formattedTableName}");
                     sb.AppendLine("{");
 
@@ -93,10 +93,10 @@ internal static class PocoGenerator
         return sb.ToString();
     }
 
-    private static string GenerateClassAttribute(string rawTableName)
+    private static string GenerateClassAttribute(string rawSchemaName, string rawTableName)
     {
         var attribute = typeof(TableNameAttribute).Name.Replace("Attribute", "", StringComparison.OrdinalIgnoreCase);
-        return $"[{attribute}(\"{rawTableName}\")]";
+        return $"[{attribute}(\"{rawSchemaName}.{rawTableName}\")]";
     }
 
     private static string GenerateUsingStatements()

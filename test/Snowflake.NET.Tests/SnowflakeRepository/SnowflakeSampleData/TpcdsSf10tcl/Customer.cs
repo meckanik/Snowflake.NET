@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the CUSTOMER table.
 /// </summary>
-[TableName("CUSTOMER")]
+[TableName("TPCDS_SF10TCL.CUSTOMER")]
 public class Customer
 {
 	/// <summary>
@@ -81,16 +81,16 @@ public class Customer
 	public String? CEmailAddress  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the C_CUSTOMER_ID value.
-	/// </summary>
-	[PropertyName("C_CUSTOMER_ID")]
-	public String? CCustomerId  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the C_PREFERRED_CUST_FLAG value.
 	/// </summary>
 	[PropertyName("C_PREFERRED_CUST_FLAG")]
 	public String? CPreferredCustFlag  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the C_CUSTOMER_ID value.
+	/// </summary>
+	[PropertyName("C_CUSTOMER_ID")]
+	public String? CCustomerId  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the C_FIRST_NAME value.

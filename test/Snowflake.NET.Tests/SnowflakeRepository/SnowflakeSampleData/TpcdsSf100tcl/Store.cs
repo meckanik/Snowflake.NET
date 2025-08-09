@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf100
 /// <summary>
 ///		Property class for the STORE table.
 /// </summary>
-[TableName("STORE")]
+[TableName("TPCDS_SF100TCL.STORE")]
 public class Store
 {
 	/// <summary>
@@ -18,7 +18,7 @@ public class Store
 	///	Gets or sets the S_GMT_OFFSET value.
 	/// </summary>
 	[PropertyName("S_GMT_OFFSET")]
-	public Int32? SGmtOffset  { get; set; }
+	public Decimal? SGmtOffset  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the S_REC_END_DATE value.
@@ -36,7 +36,7 @@ public class Store
 	///	Gets or sets the S_TAX_PRECENTAGE value.
 	/// </summary>
 	[PropertyName("S_TAX_PRECENTAGE")]
-	public Int32? STaxPrecentage  { get; set; }
+	public Decimal? STaxPrecentage  { get; set; }
 
 	/// <summary>
 	///	Gets or sets the S_DIVISION_NAME value.
@@ -171,14 +171,14 @@ public class Store
 	public Int32? SMarketId  { get; set; }
 
 	/// <summary>
-	///	Gets or sets the S_COUNTY value.
-	/// </summary>
-	[PropertyName("S_COUNTY")]
-	public String? SCounty  { get; set; }
-
-	/// <summary>
 	///	Gets or sets the S_STORE_SK value.
 	/// </summary>
 	[PropertyName("S_STORE_SK")]
 	public Int32? SStoreSk  { get; set; }
+
+	/// <summary>
+	///	Gets or sets the S_COUNTY value.
+	/// </summary>
+	[PropertyName("S_COUNTY")]
+	public String? SCounty  { get; set; }
 }

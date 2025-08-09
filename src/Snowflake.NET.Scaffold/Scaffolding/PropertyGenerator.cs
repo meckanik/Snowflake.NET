@@ -6,22 +6,13 @@ using Snowflake.NET.Models.DAO;
 
 namespace Snowflake.NET.Scaffold.Scaffolding;
 
-/// <summary>
-///     Contains methods for generating POCO properties.
-/// </summary>
 internal static class PropertyGenerator
 {
     private const string getterAndSetter = " { get; set; }\r\n";
-    private const string nullable = "?";
     private const string SPC = " ";
 
     private static readonly IFormatProvider _provider = CultureInfo.InvariantCulture;
 
-    /// <summary>
-    ///     Generates a single POCO property from table column data.
-    /// </summary>
-    /// <param name="column">The <see cref="InformationColumn"/> object, containing the property values.</param>
-    /// <returns>The constructed property as a string.</returns>
     internal static string Generate(InformationColumn? column)
     {
         var sb = new StringBuilder();
@@ -33,17 +24,21 @@ internal static class PropertyGenerator
             sb.AppendLine(GenerateComment(rawName));
             sb.AppendLine(GeneratePropertyAttribute(rawName));
 
-            if (string.Equals(column.IS_NULLABLE, "TRUE", StringComparison.Ordinal))
+            var nullable = string.Equals(column.IS_NULLABLE, "TRUE", StringComparison.OrdinalIgnoreCase) ? string.Empty : "?";
+
+            // TODO - add default values for non-nullable types
+            var dataType = string.Empty;
+            if (string.Equals(column.DATA_TYPE, "NUMBER", StringComparison.OrdinalIgnoreCase) && column.NUMERIC_SCALE > 0)
             {
-                sb.AppendLine(_provider,
-                    $"\tpublic{SPC}{TypeMapper.Map(column.DATA_TYPE)}{nullable}{SPC}{formattedName}{SPC}{getterAndSetter}");
+                dataType = typeof(decimal).Name.ToUpperInvariant();
             }
             else
             {
-                // TODO - add default values for non-nullable types
-                sb.AppendLine(_provider,
-                    $"\tpublic{SPC}{TypeMapper.Map(column.DATA_TYPE)}{nullable}{SPC}{formattedName}{SPC}{getterAndSetter}");
+                dataType = column.DATA_TYPE;
             }
+
+            sb.AppendLine(_provider,
+                $"\tpublic{SPC}{TypeMapper.Map(dataType)}{nullable}{SPC}{formattedName}{SPC}{getterAndSetter}");
         }
 
         return sb.ToString();

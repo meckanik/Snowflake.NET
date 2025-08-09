@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the INVENTORY table.
 /// </summary>
-[TableName("INVENTORY")]
+[TableName("TPCDS_SF10TCL.INVENTORY")]
 public class Inventory
 {
 	/// <summary>

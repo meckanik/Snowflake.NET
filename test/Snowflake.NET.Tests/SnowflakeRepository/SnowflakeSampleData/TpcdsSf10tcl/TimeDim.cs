@@ -5,7 +5,7 @@ namespace Snowflake.NET.Tests.SnowflakeRepository.SnowflakeSampleData.TpcdsSf10t
 /// <summary>
 ///		Property class for the TIME_DIM table.
 /// </summary>
-[TableName("TIME_DIM")]
+[TableName("TPCDS_SF10TCL.TIME_DIM")]
 public class TimeDim
 {
 	/// <summary>
