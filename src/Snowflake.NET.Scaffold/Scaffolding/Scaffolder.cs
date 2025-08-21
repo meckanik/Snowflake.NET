@@ -67,14 +67,14 @@ public class Scaffolder
             cmd.CommandText = "select * from TABLES where TABLE_SCHEMA!='INFORMATION_SCHEMA'";
             cmd.CommandType = CommandType.Text;
 
-            var tableList = SnowflakeReader.Read<InformationTable>(cmd);
+            var tableList = SnowflakeReader.ReadAsync<InformationTable>(cmd).Result;
 
             foreach (var table in tableList.Where(tbl => tbl.TABLE_SCHEMA != "INFORMATION_SCHEMA").ToList())
             {
                 cmd.CommandText = $"select * from COLUMNS where TABLE_SCHEMA='{table.TABLE_SCHEMA}' and TABLE_NAME='{table.TABLE_NAME}'";
                 cmd.CommandType = CommandType.Text;
 
-                var columnList = SnowflakeReader.Read<InformationColumn>(cmd);
+                var columnList = SnowflakeReader.ReadAsync<InformationColumn>(cmd).Result;
 
                 tableContainerList.Add(new TableContainer
                 {
@@ -90,7 +90,7 @@ public class Scaffolder
             var grouped = tableContainerList.GroupBy(
                 db => db.Schema,
                 db => db,
-                (key, data) => new TableData { Schema = key, Data = data });
+                (key, data) => new TableData { Schema = key!, Data = data });
 
             // generate the class files
             ClassGenerator.Generate(

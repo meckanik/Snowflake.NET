@@ -7,23 +7,32 @@ namespace Snowflake.NET.Framework.Sql;
 /// </summary>
 public class SqlActionOptions
 {
-    /// <summary>
-    ///     Gets or sets the Top value.
-    /// </summary>
-    public long? Top { get; set; }
+    private readonly IEnumerable<ExpressionComposition>? _where;
+    private readonly ExpressionComposition? _rlike;
 
     /// <summary>
-    ///     Gets or sets the Distinct value.
+    ///     Initializes a new instance of the <see cref="SqlActionOptions"/> class.
     /// </summary>
-    public bool Distinct { get; set; }
+    /// <param name="parser">The <see cref="ExpressionParser"/> parameter.</param>
+    public SqlActionOptions(ExpressionParser parser)
+    {
+        if (parser.IsWhere)
+        {
+            _where = [parser.ExpressionComposition];
+        }
+        else if (parser.IsRlike)
+        {
+            _rlike = parser.ExpressionComposition;
+        }
+    }
 
     /// <summary>
-    ///     Gets or sets the Transactional value.
+    ///     Gets the RLike value.
     /// </summary>
-    public bool Transactional { get; set; }
+    public ExpressionComposition? RLike => _rlike;
 
     /// <summary>
-    ///     Gets or sets the Where value.
+    ///     Gets the Where value.
     /// </summary>
-    public IEnumerable<ExpressionComposition>? Where { get; set; }
+    public IEnumerable<ExpressionComposition>? Where => _where;
 }

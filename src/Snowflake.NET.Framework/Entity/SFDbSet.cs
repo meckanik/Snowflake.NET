@@ -10,8 +10,10 @@ namespace Snowflake.NET.Framework.Entity;
 ///     Table entity wrapper that allows basic interaction abilities.
 /// </summary>
 /// <typeparam name="TEntity">The entity type parameter.</typeparam>
-public class SFDbSet<TEntity> : ISFDbSet<TEntity>
+public class SFDbSet<TEntity> : ISFDbSet<TEntity> where TEntity : class
 {
+    private readonly string _tableName;
+    private readonly string _schemaName;
     private readonly SFContext _context;
     private readonly ExpressionParser _parser = new();
 
@@ -22,10 +24,14 @@ public class SFDbSet<TEntity> : ISFDbSet<TEntity>
     public SFDbSet(SFContext context)
     {
         _context = context;
+
+        var tableMeta = EntityOperations.GetTableName(typeof(TEntity));
+        _tableName = tableMeta.TableName;
+        _schemaName = tableMeta.SchemaName;
     }
 
     /// <inheritdoc />
-    public TEntity Add(TEntity entity)
+    public TEntity Add(TEntity entity, bool overwrite = false)
     {
         throw new NotImplementedException();
     }
@@ -43,20 +49,12 @@ public class SFDbSet<TEntity> : ISFDbSet<TEntity>
     }
 
     /// <inheritdoc />
-    public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression)
+    public async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> expression)
     {
         _parser.Visit(expression);
+        var sql = SqlActions<TEntity>.SelectAll(new SqlActionOptions(_parser));
 
-        var comp = _parser.ExpressionComposition;
-        var tableMeta = EntityOperations.GetTableName(typeof(TEntity));
-        var options = new SqlActionOptions
-        {
-            Where = new List<ExpressionComposition> { comp }
-        };
-
-        var sql = SqlActions.SelectAll(tableMeta.TableName, tableMeta.SchemaName, options);
-
-        return _context.Execute<TEntity>(sql);
+        return await _context.ExecuteAsync<TEntity>(sql);
     }
 
     /// <inheritdoc />

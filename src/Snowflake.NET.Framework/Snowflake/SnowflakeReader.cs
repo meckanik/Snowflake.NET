@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Concurrent;
+using System.Data;
 using System.Text;
 using Snowflake.NET.Connector;
 using Snowflake.NET.Constants;
@@ -17,37 +18,40 @@ public static class SnowflakeReader
     /// <typeparam name="T">The object type parameter.</typeparam>
     /// <param name="cmd">The command text to execute.</param>
     /// <returns>A collection of <see cref="{T}"/></returns>
-    public static IEnumerable<T> Read<T>(IDbCommand cmd)
+    public static async Task<IEnumerable<T>> ReadAsync<T>(IDbCommand cmd)
     {
         PropertyValidators.ValidateArgument(cmd);
+        var result = new ConcurrentBag<T>();
 
-        var result = new List<T>();
-        using (var reader = cmd?.ExecuteReader())
+        await Task.Run(() =>
         {
-            if (reader is not null)
+            using (var reader = cmd?.ExecuteReader())
             {
-                var fieldCount = reader.FieldCount;
-                var propList = new List<string>();
-
-                for (var indx = 0; indx < fieldCount; indx++)
+                if (reader is not null)
                 {
-                    propList.Add(reader.GetName(indx));
-                }
+                    var fieldCount = reader.FieldCount;
+                    var propList = new List<string>();
 
-                var builder = new ObjectDeserializer<T>(propList);
-                while (reader.Read())
-                {
-                    var sb = new StringBuilder();
                     for (var indx = 0; indx < fieldCount; indx++)
                     {
-                        sb.Append($"{reader.GetString(indx)}{JsonConstants.Seperator}");
+                        propList.Add(reader.GetName(indx));
                     }
 
-                    result.Add(builder.Deserialize(sb.ToString()));
+                    var builder = new ObjectDeserializer<T>(propList);
+                    while (reader.Read())
+                    {
+                        var sb = new StringBuilder();
+                        for (var indx = 0; indx < fieldCount; indx++)
+                        {
+                            sb.Append($"{reader.GetString(indx)}{JsonConstants.Seperator}");
+                        }
+
+                        result.Add(builder.Deserialize(sb.ToString()));
+                    }
                 }
             }
-        }
+        });
 
-        return result;
+        return result.AsEnumerable();
     }
 }

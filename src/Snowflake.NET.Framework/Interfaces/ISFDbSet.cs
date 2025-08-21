@@ -8,8 +8,9 @@ internal interface ISFDbSet<TEntity>
     ///     Adds an object to the table.
     /// </summary>
     /// <param name="entity">The entity type parameter.</param>
+    /// <param name="overwrite">Flag for overwriting an existing record.</param>
     /// <returns>The newly created object.</returns>
-    TEntity Add(TEntity entity);
+    TEntity Add(TEntity entity, bool overwrite = false);
 
     /// <summary>
     ///     Creates a new instance of an object.
@@ -29,7 +30,7 @@ internal interface ISFDbSet<TEntity>
     /// </summary>
     /// <param name="expression">The search expression parameter.</param>
     /// <returns>The object, if found.</returns>
-    IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression);
+    Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> expression);
 
     /// <summary>
     ///     Removes an object matching the passed-in id.

@@ -1,77 +1,130 @@
-﻿using System.Text;
+﻿using System.Collections.Frozen;
+using System.Text;
+using Snowflake.NET.Constants;
+using Snowflake.NET.Framework.Entity;
+using Snowflake.NET.Helpers;
 using Snowflake.NET.Validation;
 
 namespace Snowflake.NET.Framework.Sql;
 
 /// <summary>
-///     Contains methods for generating commong sql commands.
+///     Contains methods for generating common sql commands.
 /// </summary>
-public static class SqlActions
+public static class SqlActions<T> where T : class
 {
-    private const string SELECT = "SELECT";
-    private const string FROM = "FROM";
-    private const string WHERE = "WHERE";
-    private const string ALL = "*";
-    private const string AND = "AND";
     private const string SPC = " ";
 
-    /// <summary>
-    ///     Generates a select statement.
-    /// </summary>
-    /// <param name="tableName">The name of the table to query.</param>
-    /// <param name="schemaName">The table schema value.</param>
-    /// <param name="options">Optional sql operations.</param>
-    /// <returns>A textual sql statement.</returns>
-    public static string SelectAll(string tableName, string? schemaName = null, SqlActionOptions? options = null)
+    private readonly static string _tableName;
+
+    static SqlActions()
     {
-        PropertyValidators.ValidateArgument(tableName);
+        var tableMeta = EntityOperations.GetTableName(typeof(T));
+        var schema = $"{tableMeta.SchemaName}." ?? null;
 
-        var schema = $"{schemaName}." ?? null;
-        var where = ProcessWhere(options);
-
-        return $"{SELECT}{SPC}{ALL}{SPC}{FROM}{SPC}{schema}{tableName}{SPC}{where}";
+        _tableName = $"{schema}{tableMeta.TableName}";
     }
 
     /// <summary>
     ///     Generates a select statement.
     /// </summary>
-    /// <param name="tableName">The name of the table to query.</param>
-    /// <param name="properties">The properties to return.</param>
-    /// <param name="schemaName">The table schema value.</param>
     /// <param name="options">Optional sql operations.</param>
-    /// <returns></returns>
-    public static string SelectSpecific(string tableName, IEnumerable<string> properties, string? schemaName = null, SqlActionOptions? options = null) 
+    /// <returns>A string representing the current sql statement.</returns>
+    public static string SelectAll(SqlActionOptions? options = null)
     {
-        PropertyValidators.ValidateArgument(tableName);
+        return ProcessOptions($"{SqlDictionary.Select}{SPC}{SqlDictionary.All}{SPC}{SqlDictionary.From}{SPC}{_tableName}{SPC}", options);
+    }
+
+    /// <summary>
+    ///     Generates a select statement.
+    /// </summary>
+    /// <param name="properties">The properties to return.</param>
+    /// <param name="options">Optional sql operations.</param>
+    /// <returns>A string representing the current sql statement.</returns>
+    public static string SelectSpecific(
+        IEnumerable<string> properties, 
+        SqlActionOptions? options = null) 
+    {
         PropertyValidators.ValidateArgument(properties);
 
-        var schema = schemaName ?? $"{schemaName}.";
         var joinedProps = string.Join(",", properties);
 
-        return $"{SELECT}{SPC}{joinedProps}{SPC}{FROM}{schema}{tableName}";
+        return $"{SqlDictionary.Select}{SPC}{joinedProps}{SPC}{SqlDictionary.From}{_tableName}";
     }
 
-    private static string ProcessWhere(SqlActionOptions? options)
+    public static string Insert(FrozenDictionary<string, object?> props)
+    {
+        return $"{SqlDictionary.InsertInto}{SPC}{_tableName}{SPC}({string.Join(',', props.Select(d => d.Key))}) " +
+            $"\t{SqlDictionary.Values}{SPC}({FormatInsertProperties(props.Select(v => v.Value))});";
+    }
+
+    /// <summary>
+    ///     Processes the SqlActionOptions object into sql.
+    /// </summary>
+    /// <param name="sql">The sql string parameter.</param>
+    /// <param name="options">The <see cref="SqlActionOptions"/> parameter.</param>
+    /// <returns>A string representing the current sql statement.</returns>
+    public static string ProcessOptions(string sql, SqlActionOptions? options)
+    {
+        var result = new string[1] { sql };
+        if (options is not null)
+        {
+            if (options.Where is not null)
+            {
+                result[0] = ProcessWhere(result[0], options);
+            }
+            if (options.RLike is not null)
+            {
+                result[0] = ProcessRLike(result[0], options);
+            }
+        }
+
+        return result[0];
+    }
+
+    private static string ProcessWhere(string sql, SqlActionOptions? options)
     {
         var result = string.Empty;
         if (options is not null && options.Where is not null && options.Where.Any())
         {
             var whereList = options.Where.ToArray();
             var count = options.Where.Count();
-            var sb = new StringBuilder($"{WHERE}{SPC}");
+            var sb = new StringBuilder($"{sql.Trim()}{SPC}{SqlDictionary.Where}{SPC}");
 
             for (var indx = 0; indx < count; indx++)
             {
                 var exp = whereList[indx];
                 sb.Append($"{exp.CustomAttribute}{exp.ComparisonOperator}'{exp.PropertyValue}' ");
 
-                var append = indx == (count - 1) ? SPC : $",{SPC}{AND}{SPC}";
+                var append = indx == (count - 1) ? SPC : $",{SPC}{SqlDictionary.And}{SPC}";
                 sb.Append(append);
             }
 
             result = sb.ToString();
         }
 
-        return result;
+        return result.Trim();
+    }
+
+    private static string ProcessRLike(string sql, SqlActionOptions? options)
+    {
+        var result = new string[1] { sql }; 
+        if (options is not null && options.RLike is not null)
+        {
+            result[0] = $"{sql.Trim()}{SPC}{SqlDictionary.Where}{SPC}{SqlDictionary.Rlike}({options.RLike.CustomAttribute}, '{options.RLike.MethodPropertyValue}', 'i');";
+        }
+
+        return result[0];
+    }
+
+    private static string FormatInsertProperties(IEnumerable<object?> values)
+    {
+        var sb = new StringBuilder();
+        foreach (var value in values)
+        {
+            sb.Append(Numeric.IsNumericType(value?.GetType()!) ? value?.ToString() : $"'{value?.ToString()}'");
+            sb.Append(',');
+        }
+
+        return sb.ToString().TrimEnd(',');
     }
 }

@@ -32,13 +32,13 @@ public class SFContext : IDisposable
     }
 
     /// <summary>
-    ///     Executes a command against the specified table.
+    ///     Executes a command against the specified table, asynchronously.
     /// </summary>
     /// <typeparam name="TEntity">The entity type parameter.</typeparam>
     /// <param name="sql">The sql command to execute.</param>
     /// <param name="options">The sql execution objections object.</param>
     /// <returns></returns>
-    public IEnumerable<TEntity> Execute<TEntity>(string sql, object[]? options = null)
+    public async Task<IEnumerable<TEntity>> ExecuteAsync<TEntity>(string sql, object[]? options = null)
     {
         var result = Enumerable.Empty<TEntity>();
         using (var cmd = _connection.CreateCommand())
@@ -47,7 +47,7 @@ public class SFContext : IDisposable
             cmd.CommandText = sql;
             cmd.CommandType = CommandType.Text;
 
-            result = SnowflakeReader.Read<TEntity>(cmd);
+            result = await SnowflakeReader.ReadAsync<TEntity>(cmd);
         }
 
         return result;

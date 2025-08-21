@@ -8,12 +8,22 @@ namespace Snowflake.NET.Framework.Expression;
 /// </summary>
 public class ExpressionParser : ExpressionVisitor
 {
-    ExpressionComposition _composition = new();
+    private ExpressionComposition _composition = new();
 
     /// <summary>
     ///     Gets the ExpressionComposition value.
     /// </summary>
     public ExpressionComposition ExpressionComposition => _composition;
+
+    /// <summary>
+    ///     Gets or sets the IsRlike value;
+    /// </summary>
+    public bool IsRlike { get; set; }
+
+    /// <summary>
+    ///     Gets or sets the IsWhere value;
+    /// </summary>
+    public bool IsWhere => !IsRlike;
 
     protected override System.Linq.Expressions.Expression VisitMember(MemberExpression node)
     {
@@ -50,6 +60,20 @@ public class ExpressionParser : ExpressionVisitor
         {
             //OrderingMethodFound = true;
         }
+        else if (node.Method.DeclaringType == typeof(String) && node.Method.Name == "Equals")
+        {
+            if ((node.Arguments is not null) && node.Arguments is var args)
+            {
+                IsRlike = true; 
+
+                _composition.MethodPropertyValue = ((ConstantExpression)args[0]).Value?.ToString()!;
+                _composition.MethodPropertyName = ((MemberExpression)args[1]).Member.Name.ToString();
+                _composition.MethodComparisonOperator = "Equal";
+            }
+        }
+        
+        // add support for trim()
+        
         return base.VisitMethodCall(node);
     }
 }

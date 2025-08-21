@@ -7,7 +7,7 @@ namespace Snowflake.NET.Tests.Functional
     {
         public TestContext? TestContext { get; set; }
 
-        private static string _connectionSettings;
+        private static string _connectionSettings = string.Empty;
 
         [SetUp]
         public void Setup()
