@@ -10,13 +10,13 @@ namespace Snowflake.NET.Framework.Sql;
 /// <summary>
 ///     Contains methods for generating common sql commands.
 /// </summary>
-public static class SqlActions<T> where T : class
+public static class SqlActions_v1<T> where T : class
 {
     private const string SPC = " ";
 
     private readonly static string _tableName;
 
-    static SqlActions()
+    static SqlActions_v1()
     {
         var tableMeta = EntityOperations.GetTableName(typeof(T));
         var schema = $"{tableMeta.SchemaName}." ?? null;
@@ -29,7 +29,7 @@ public static class SqlActions<T> where T : class
     /// </summary>
     /// <param name="options">Optional sql operations.</param>
     /// <returns>A string representing the current sql statement.</returns>
-    public static string SelectAll(SqlActionOptions? options = null)
+    public static string SelectAll(SqlActionOptions_v1? options = null)
     {
         return ProcessOptions($"{SqlDictionary.Select}{SPC}{SqlDictionary.All}{SPC}{SqlDictionary.From}{SPC}{_tableName}{SPC}", options);
     }
@@ -42,7 +42,7 @@ public static class SqlActions<T> where T : class
     /// <returns>A string representing the current sql statement.</returns>
     public static string SelectSpecific(
         IEnumerable<string> properties, 
-        SqlActionOptions? options = null) 
+        SqlActionOptions_v1? options = null) 
     {
         PropertyValidators.ValidateArgument(properties);
 
@@ -61,9 +61,9 @@ public static class SqlActions<T> where T : class
     ///     Processes the SqlActionOptions object into sql.
     /// </summary>
     /// <param name="sql">The sql string parameter.</param>
-    /// <param name="options">The <see cref="SqlActionOptions"/> parameter.</param>
+    /// <param name="options">The <see cref="SqlActionOptions_v1"/> parameter.</param>
     /// <returns>A string representing the current sql statement.</returns>
-    public static string ProcessOptions(string sql, SqlActionOptions? options)
+    public static string ProcessOptions(string sql, SqlActionOptions_v1? options)
     {
         var result = new string[1] { sql };
         if (options is not null)
@@ -81,7 +81,7 @@ public static class SqlActions<T> where T : class
         return result[0];
     }
 
-    private static string ProcessWhere(string sql, SqlActionOptions? options)
+    private static string ProcessWhere(string sql, SqlActionOptions_v1? options)
     {
         var result = string.Empty;
         if (options is not null && options.Where is not null && options.Where.Any())
@@ -105,7 +105,7 @@ public static class SqlActions<T> where T : class
         return result.Trim();
     }
 
-    private static string ProcessRLike(string sql, SqlActionOptions? options)
+    private static string ProcessRLike(string sql, SqlActionOptions_v1? options)
     {
         var result = new string[1] { sql }; 
         if (options is not null && options.RLike is not null)

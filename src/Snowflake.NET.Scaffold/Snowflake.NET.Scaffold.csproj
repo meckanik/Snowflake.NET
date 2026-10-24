@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="envdte" Version="17.14.40260" />
-    <PackageReference Include="Snowflake.Data" Version="4.7.0" />
+    <PackageReference Include="Snowflake.Data" Version="5.5.0" />
   </ItemGroup>
 
   <ItemGroup>

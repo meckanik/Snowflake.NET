@@ -5,16 +5,16 @@ namespace Snowflake.NET.Framework.Sql;
 /// <summary>
 ///     Property class for optional sql operation elements.
 /// </summary>
-public class SqlActionOptions
+public class SqlActionOptions_v1
 {
     private readonly IEnumerable<ExpressionComposition>? _where;
     private readonly ExpressionComposition? _rlike;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="SqlActionOptions"/> class.
+    ///     Initializes a new instance of the <see cref="SqlActionOptions_v1"/> class.
     /// </summary>
     /// <param name="parser">The <see cref="ExpressionParser"/> parameter.</param>
-    public SqlActionOptions(ExpressionParser parser)
+    public SqlActionOptions_v1(ExpressionParser parser)
     {
         if (parser.IsWhere)
         {

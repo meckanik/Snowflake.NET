@@ -50,4 +50,13 @@ public class ExpressionComposition
         get { return _methodComparisonOperator; }
         set { _methodComparisonOperator = ComparisonMapper.Map(value); }
     }
+
+    // TODO
+    public string LogicalOperator { get; set;  } = string.Empty;
+
+    public bool IsNullCheck { get; set; } = false;
+
+    public bool IsNullOrEmptyCheck { get; set; } = false;
+
+    public bool IsNegated { get; set; } = false;
 }

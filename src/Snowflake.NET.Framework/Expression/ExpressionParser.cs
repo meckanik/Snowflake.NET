@@ -9,11 +9,20 @@ namespace Snowflake.NET.Framework.Expression;
 public class ExpressionParser : ExpressionVisitor
 {
     private ExpressionComposition _composition = new();
+    private List<ExpressionComposition> _compositions = [];
 
     /// <summary>
     ///     Gets the ExpressionComposition value.
     /// </summary>
     public ExpressionComposition ExpressionComposition => _composition;
+
+    /// <summary>
+    ///     Gets the Compositions value.
+    /// </summary>
+    /// <remarks>
+    ///     Supports compound expressions.
+    /// </remarks>
+    public List<ExpressionComposition> Compositions => _compositions;
 
     /// <summary>
     ///     Gets or sets the IsRlike value;

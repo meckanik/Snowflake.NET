@@ -21,7 +21,7 @@ public class SFQueryTests
     [Test]
     public async Task Test_ExecuteBasicLinqQuery()
     {
-        var result = await _dataContext.TpcdsSf100tcl?.WebSites?.Find(web => web.WebName == "site_0")!;
+        var result = await _dataContext.TpcdsSf100tcl?.WebSites?.FindAsync(web => web.WebName == "site_0")!;
 
         Assert.That(result, Is.Not.Null);
         Assert.That(result.Count(), Is.GreaterThan(1));
@@ -30,7 +30,7 @@ public class SFQueryTests
     [Test]
     public async Task Test_LinqQueryWithMethod()
     {
-        var result = await _dataContext.TpcdsSf100tcl?.WebSites?.Find(web => string.Equals("SiTe_0", web.WebName, StringComparison.OrdinalIgnoreCase))!;
+        var result = await _dataContext.TpcdsSf100tcl?.WebSites?.FindAsync(web => string.Equals("SiTe_0", web.WebName, StringComparison.OrdinalIgnoreCase))!;
 
         Assert.That(result, Is.Not.Null);
         Assert.That(result.Count(), Is.GreaterThan(1));

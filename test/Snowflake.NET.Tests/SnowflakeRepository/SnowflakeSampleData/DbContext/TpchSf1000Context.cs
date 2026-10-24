@@ -11,40 +11,40 @@ public class TpchSf1000Context
 	/// <summary>
 	///		Gets or sets the Customers value.
 	/// </summary>
-	public SFDbSet<Customer>? Customers  { get; set; }
+	public SFDbSet3<Customer>? Customers  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the Regions value.
 	/// </summary>
-	public SFDbSet<Region>? Regions  { get; set; }
+	public SFDbSet3<Region>? Regions  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the Orders value.
 	/// </summary>
-	public SFDbSet<Orders>? Orders  { get; set; }
+	public SFDbSet3<Orders>? Orders  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the Parts value.
 	/// </summary>
-	public SFDbSet<Part>? Parts  { get; set; }
+	public SFDbSet3<Part>? Parts  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the Suppliers value.
 	/// </summary>
-	public SFDbSet<Supplier>? Suppliers  { get; set; }
+	public SFDbSet3<Supplier>? Suppliers  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the Partsupps value.
 	/// </summary>
-	public SFDbSet<Partsupp>? Partsupps  { get; set; }
+	public SFDbSet3<Partsupp>? Partsupps  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the Lineitems value.
 	/// </summary>
-	public SFDbSet<Lineitem>? Lineitems  { get; set; }
+	public SFDbSet3<Lineitem>? Lineitems  { get; set; }
 
 	/// <summary>
 	///		Gets or sets the Nations value.
 	/// </summary>
-	public SFDbSet<Nation>? Nations  { get; set; }
+	public SFDbSet3<Nation>? Nations  { get; set; }
 }

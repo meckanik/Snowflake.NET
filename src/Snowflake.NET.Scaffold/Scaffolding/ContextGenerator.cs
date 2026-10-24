@@ -22,7 +22,7 @@ internal static class ContextGenerator
     private static string _repositoryNamespace = string.Empty;
     private static string _dbContextNameSpace = string.Empty;
     private static string _formattedDbName = string.Empty;
-    private static string _dbSetName = typeof(SFDbSet<>).Name.TrimEnd(['`', '1']);
+    private static string _dbSetName = typeof(SFDbSet3<>).Name.TrimEnd(['`', '1']);
     private static string _sfContextName = typeof(SFContext).Name;
 
     /// <summary>
@@ -66,7 +66,7 @@ internal static class ContextGenerator
                 // set usings
                 usings = new[]
                 {
-                    $"using {typeof(SFDbSet<>).Namespace};",
+                    $"using {typeof(SFDbSet3<>).Namespace};",
                     $"using {_repositoryNamespace}.{_formattedDbName}.{formattedSchemaName};\r\n"
                 };
                 writer.WriteUsings(usings);
